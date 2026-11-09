@@ -33,3 +33,59 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ========================================================
+   ANIMATION UTILITIES (Triggered by JS Intersection Observer)
+   ======================================================== */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN: TABLET & MOBILE FIXES
+   ======================================================== */
+
+/* Tablet (Portrait & Landscape) */
+@media (max-width: 1024px) {
+  .hero-glow-layer {
+    background: radial-gradient(circle at 20% 20%, #FFF75D 0%, rgba(255, 247, 93, 0.3) 45%, transparent 75%),
+                radial-gradient(circle at 80% 30%, #FFF46E 0%, rgba(255, 244, 110, 0.25) 45%, transparent 75%),
+                radial-gradient(circle at 50% 50%, #FFFFFF 0%, #FFFFFF 100%);
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 767px) {
+  /* Mencegah horizontal scroll (layar geser kiri-kanan) di HP */
+  body, html {
+    overflow-x: hidden !important;
+    width: 100%;
+  }
+
+  /* Mengamankan padding section di layar kecil */
+  section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  
+  /* Menyesuaikan gambar portrait di Hero agar mentok sempurna di HP */
+  #about img {
+    width: 125vw !important;
+    max-width: none !important;
+    max-height: 70vh !important;
+  }
+
+  /* Mencegah Auto-Zoom di iOS Safari saat menekan input form */
+  input[type="text"], 
+  input[type="email"], 
+  textarea {
+    font-size: 16px !important;
+  }
+}
