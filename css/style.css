@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Strict Swiss Editorial Grain & Glow */
+.hero-glow-layer {
+  background: radial-gradient(circle at 15% 15%, #FFF75D 0%, rgba(255, 247, 93, 0.4) 30%, transparent 65%),
+              radial-gradient(circle at 85% 20%, #FFF46E 0%, rgba(255, 244, 110, 0.35) 30%, transparent 65%),
+              radial-gradient(circle at 50% 50%, #FFFFFF 0%, #FFFFFF 100%);
+}
+
+/* Hide scrollbar for standard editorial sliders */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

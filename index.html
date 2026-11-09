@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Rahmat.Tech — Portofolio Swiss Modern Editorial</title>
+  
+  <!-- Custom CSS (Google Fonts & Material Symbols imported here) -->
+  <link href="css/style.css" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Tailwind Configuration -->
+  <script src="js/tailwind-config.js"></script>
+</head>
+<body class="bg-[#FFFFFF] text-primary antialiased selection:bg-[#FFF106] selection:text-primary min-h-screen">
+  <!-- SVG Filter Definition for Noise Texture -->
+  <svg aria-hidden="true" class="hidden" height="0" width="0">
+    <filter id="editorial-noise">
+      <feturbulence basefrequency="0.8" numoctaves="3" stitchtiles="stitch" type="fractalNoise"></feturbulence>
+      <fecolormatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.06 0"></fecolormatrix>
+    </filter>
+  </svg>
+  
+  <!-- 1. FIXED TOP NAVIGATION PILL -->
+  <header class="fixed top-6 left-1/2 -translate-x-1/2 rounded-full z-50">
+    <nav aria-label="Navigasi Utama" class="bg-primary flex items-center gap-1 sm:gap-2 px-2.5 py-1.5 rounded-full border border-outline-variant/20 h-[47px] select-none shadow-none">
+      <!-- Active Item: Home (with white capsule and house icon) -->
+      <a class="bg-surface-container-lowest text-primary rounded-full px-3.5 py-1.5 font-button text-button inline-flex items-center gap-1.5 transition-colors duration-150" href="#about">
+        <span class="material-symbols-outlined text-[16px] leading-none" data-icon="home">home</span>
+        <span>Home</span>
+      </a>
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-1">
+        <a class="text-text-muted-dark hover:text-on-primary px-3 py-1.5 font-button text-button transition-colors duration-150 rounded-full hover:bg-hover-dark" href="#history">Roadmap</a>
+        <a class="text-text-muted-dark hover:text-on-primary px-3 py-1.5 font-button text-button transition-colors duration-150 rounded-full hover:bg-hover-dark" href="#skill">Skill</a>
+        <a class="text-text-muted-dark hover:text-on-primary px-3 py-1.5 font-button text-button transition-colors duration-150 rounded-full hover:bg-hover-dark" href="#certificate">Sertifikat</a>
+        <a class="text-text-muted-dark hover:text-on-primary px-3 py-1.5 font-button text-button transition-colors duration-150 rounded-full hover:bg-hover-dark" href="#projects">Projects</a>
+        <a class="text-text-muted-dark hover:text-on-primary px-3 py-1.5 font-button text-button transition-colors duration-150 rounded-full hover:bg-hover-dark" href="#contact">Contact</a>
+      </div>
+      <!-- Mobile Menu Toggle Button -->
+      <button aria-label="Buka Menu" class="md:hidden flex items-center justify-center text-text-muted-dark hover:text-on-primary px-2.5 py-1.5 rounded-full hover:bg-hover-dark transition-colors duration-150" id="mobile-menu-trigger" type="button">
+        <span class="material-symbols-outlined text-[18px]" data-icon="menu">menu</span>
+      </button>
+    </nav>
+  </header>
+  
+  <!-- Mobile Dropdown Tray -->
+  <div class="hidden fixed top-20 left-1/2 -translate-x-1/2 w-[90vw] max-w-xs bg-primary rounded-2xl p-4 border border-outline-variant/20 z-50 flex flex-col gap-2 shadow-none" id="mobile-menu">
+    <a class="text-text-muted-dark hover:text-on-primary px-3 py-2 font-button text-button rounded-lg transition-colors" href="#history">Roadmap</a>
+    <a class="text-text-muted-dark hover:text-on-primary px-3 py-2 font-button text-button rounded-lg transition-colors" href="#skill">Skill</a>
+    <a class="text-text-muted-dark hover:text-on-primary px-3 py-2 font-button text-button rounded-lg transition-colors" href="#certificate">Sertifikat</a>
+    <a class="text-text-muted-dark hover:text-on-primary px-3 py-2 font-button text-button rounded-lg transition-colors" href="#projects">Projects</a>
+    <a class="text-text-muted-dark hover:text-on-primary px-3 py-2 font-button text-button rounded-lg transition-colors" href="#contact">Contact</a>
+  </div>
+  
+  <main>
+    <!-- 2. HERO SECTION (#about) -->
+    <section class="relative w-full h-screen min-h-[750px] overflow-hidden hero-glow-layer" id="about">
+      <!-- Grain Overlay -->
+      <div class="absolute inset-0 pointer-events-none z-[1]" style="filter: url(#editorial-noise); opacity: 0.85;"></div>
+      
+      <!-- Giant Wordmark Behind Cutout Portrait -->
+      <div class="absolute top-[35%] md:top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 select-none pointer-events-none w-full px-4 flex justify-center">
+        <!-- Teks diperbesar: text-[24vw] menjadi text-[28vw], md:text-[18vw] menjadi md:text-[22vw] -->
+        <h1 class="font-['Inter_Tight'] text-[28vw] sm:text-[24vw] md:text-[22vw] lg:text-[18vw] leading-[0.8] tracking-[-0.05em] text-primary font-black uppercase whitespace-nowrap">
+          RAHMAT©
+        </h1>
+      </div>
+      
+      <!-- Side Editorial Texts (Aligned with shoulders) -->
+      <!-- Posisi diubah sedikit ke bawah: top-[55%] menjadi top-[65%], md:top-[60%] menjadi md:top-[70%] -->
+      <div class="absolute top-[65%] md:top-[70%] -translate-y-1/2 left-6 md:left-12 z-30 max-w-[240px] md:max-w-[280px] pointer-events-auto hidden sm:block">
+        <p class="font-['Inter'] text-[12px] md:text-[14px] text-primary leading-[1.6] font-medium bg-white/30 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none p-3 md:p-0 rounded-xl">
+          Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
+        </p>
+      </div>
+      
+      <div class="absolute top-[65%] md:top-[70%] -translate-y-1/2 right-6 md:right-12 z-30 max-w-[240px] md:max-w-[280px] text-right pointer-events-auto hidden sm:block">
+        <p class="font-['Inter'] text-[12px] md:text-[14px] text-primary leading-[1.6] font-medium bg-white/30 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none p-3 md:p-0 rounded-xl">
+          Menghadirkan pengalaman digital yang fungsional, bersih, dan berbobot tanpa ornamen berlebih.
+        </p>
+      </div>
+      
+      <!-- Cut-out Portrait: Huge and Bottom-Aligned (Mentok Bawah) -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[140vw] sm:w-[110vw] md:w-[100vw] lg:w-[85vw] max-w-[1300px] pointer-events-none flex items-end justify-center">
+        <img alt="Portrait of Rahmat.Tech" class="w-full h-auto max-h-[92vh] object-contain object-bottom select-none drop-shadow-2xl" src="assets/image/Rahmat.png"/>
+      </div>
+      
+      <!-- Hero Bottom Row Indicator -->
+      <div class="absolute bottom-8 left-6 md:left-12 z-30 pointer-events-auto">
+        <span class="font-['Inter'] text-[12px] md:text-[13px] text-primary tracking-tight font-medium">
+          © Rahmat.Tech 2026
+        </span>
+      </div>
+      <div class="absolute bottom-8 right-6 md:right-12 z-30 pointer-events-auto">
+        <a class="font-['Inter'] text-[12px] md:text-[13px] text-primary hover:opacity-70 transition-opacity font-medium" href="#tentang-saya">
+          (Scroll down)
+        </a>
+      </div>
+    </section>
+    
+    <!-- 3. ABOUT ME BLOCK -->
+    <section class="w-full bg-[#FFFFFF] border-t border-hairline py-24 px-6 md:px-12" id="tentang-saya">
+      <div class="max-w-[1280px] mx-auto">
+        <!-- Two-Column Asymmetric Grid: 5 Cols Left, 7 Cols Right -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <!-- Left Column (Cols 1-5) -->
+          <div class="lg:col-span-5 lg:sticky lg:top-28">
+            <span class="block font-caption text-caption text-[#636363] mb-3">
+              (About Me)
+            </span>
+            <h2 class="font-headline-lg text-headline-lg md:text-[44px] md:leading-[1.1] text-primary font-semibold tracking-tight">
+              Mengenal Perjalanan dan Cara Kerja Saya
+            </h2>
+            <div class="mt-8 pt-8 border-t border-hairline hidden lg:block">
+              <p class="font-caption text-caption text-[#636363] leading-relaxed">
+                Menolak ornamentasi semata. Memprioritaskan keterbacaan, keteraturan struktural, dan integritas visual.
+              </p>
+            </div>
+          </div>
+          <!-- Right Column (Cols 6-12) -->
+          <div class="lg:col-span-7 flex flex-col gap-7">
+            <!-- Rectangular Portrait Framing -->
+            <div class="w-full bg-media-backdrop rounded-[24px] overflow-hidden aspect-[4/3] flex items-center justify-center border border-hairline shadow-none">
+              <img alt="Portrait detail Rahmat.Tech" class="w-full h-full object-cover object-center" src="assets/image/rahmat.jpg"/>
+            </div>
+            <!-- Narrative Paragraphs -->
+            <div class="flex flex-col gap-5 pt-2">
+              <p class="font-body-lg text-body-lg text-[#636363] leading-relaxed">
+                Berangkat dari ketertarikan mendalam pada tipografi modern dan prinsip tata letak grid Swiss, saya memandang perancangan antarmuka bukan sekadar merangkai piksel, melainkan membangun arsitektur informasi yang terukur. Setiap ruang kosong, skala hierarki, dan pilihan komponen diformulasikan untuk mengalirkan kejelasan pesan kepada pengguna secara lugas.
+              </p>
+              <p class="font-body-lg text-body-lg text-[#636363] leading-relaxed">
+                Berbasis di Banjarmasin, saya bermitra dengan berbagai studio dan tim produk untuk merancang sistem desain menyeluruh, aplikasi web performa tinggi, serta media interaktif. Pendekatan saya konsisten: menghilangkan friksi visual agar substansi karya mampu berbicara dengan ketegasan maksimal.
+              </p>
+            </div>
+            <!-- Action Controls Row -->
+            <div class="flex flex-wrap items-center gap-3 pt-3">
+              <!-- Primary Pill -->
+              <a class="inline-flex items-center justify-center bg-primary text-on-primary px-6 h-[46px] rounded-full font-button text-button hover:bg-hover-dark transition-colors duration-150 shadow-none" href="#contact">
+                Hubungi Saya
+              </a>
+              <!-- Social Links (40px circular hairline outlines) -->
+              <div class="flex items-center gap-2 sm:ml-2">
+                <a aria-label="GitHub" class="w-10 h-10 rounded-full border border-hairline bg-surface-container-lowest flex items-center justify-center text-primary hover:bg-surface-container transition-colors duration-150 shadow-none" href="https://github.com/Amat-JuniorWebDev" rel="noopener noreferrer" target="_blank">
+                  <svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+                    <path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path>
+                  </svg>
+                </a>
+                <a aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-hairline bg-surface-container-lowest flex items-center justify-center text-primary hover:bg-surface-container transition-colors duration-150 shadow-none" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+                  <svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <!-- Status Indicator -->
+            <div class="pt-4 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#FFF106]"></span>
+              <p class="font-caption text-caption text-[#636363]">
+                Tersedia untuk proyek lepas &amp; kolaborasi · Banjarmasin, Indonesia
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 4. SECTION 1 — HISTORY ROAD MAP (#history) -->
+    <section class="w-full bg-[#FFFFFF] border-t border-hairline py-28 md:py-32 px-6 md:px-12" id="history">
+      <div class="max-w-[1280px] mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <!-- Kolom Kiri (Cols 1-5, Sticky) -->
+          <div class="lg:col-span-5 lg:sticky lg:top-32">
+            <span class="block font-caption text-caption text-[#636363] mb-3">
+              (Roadmap &amp; Experience)
+            </span>
+            <h2 class="font-headline-lg text-[36px] md:text-[44px] md:leading-[1.1] text-primary font-semibold tracking-tight font-['Inter_Tight']">
+              Langkah demi Langkah Perjalanan Saya
+            </h2>
+            <p class="font-body-md text-[14px] text-[#636363] leading-relaxed max-w-sm mt-4 font-['Inter']">
+              Rekam jejak pengalaman profesional, kontribusi teknis, dan tonggak pencapaian sepanjang berkarier di industri rekayasa perangkat lunak dan desain produk.
+            </p>
+          </div>
+          <!-- Kolom Kanan (Cols 6-12, Vertical Accordion, No Timeline Lines / Dots) -->
+          <div class="lg:col-span-7 flex flex-col space-y-3" id="history-accordion">
+            <!-- Row 1: Terbuka / Default item terbaru -->
+            <div class="history-item cursor-pointer rounded-[14px] bg-[#0F0F0F] text-white p-[22px] md:p-[24px] border border-transparent transition-all duration-200 select-none shadow-none" data-open="true">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 flex-1">
+                  <span class="history-period text-[14px] text-[#A0A0A0] font-['Inter'] whitespace-nowrap">2026 — Sekarang</span>
+                  <h3 class="history-title text-[16px] text-white font-semibold font-['Inter_Tight']">Mahasiswa Teknik Informatika</h3>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                  <span class="history-tag text-xs font-['Inter'] px-2.5 py-0.5 rounded-full border border-neutral-700 text-[#A0A0A0]">Pendidikan</span>
+                  <span class="material-symbols-outlined history-chevron text-[16px] text-white transition-transform duration-200 rotate-180">expand_more</span>
+                </div>
+              </div>
+              <div class="history-content pt-1 overflow-hidden transition-all duration-200">
+                <p class="text-[14px] font-medium text-white mt-3 font-['Inter']">Universitas Islam Kalimantan Muhammad Arsyad Al Banjari (UNISKA)</p>
+                <p class="text-[14px] text-[#A0A0A0] leading-relaxed mt-2 font-['Inter']">
+                  Menempuh pendidikan S1 dengan fokus eksplorasi teknologi baru, pengembangan web, dan pemrograman Python.
+                </p>
+              </div>
+            </div>
+            <!-- Row 2: Tertutup -->
+            <div class="history-item cursor-pointer rounded-[14px] bg-[#FFFFFF] text-primary p-5 border border-[#EEEEEE] transition-all duration-200 select-none shadow-none" data-open="false">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 flex-1">
+                  <span class="history-period text-[14px] text-[#636363] font-['Inter'] whitespace-nowrap">2026</span>
+                  <h3 class="history-title text-[16px] text-black font-semibold font-['Inter_Tight']">Co-founder &amp; Web Developer</h3>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                  <span class="history-tag text-xs font-['Inter'] px-2.5 py-0.5 rounded-full border border-[#EEEEEE] text-[#636363]">Purna Waktu</span>
+                  <span class="material-symbols-outlined history-chevron text-[16px] text-[#636363] transition-transform duration-200">expand_more</span>
+                </div>
+              </div>
+              <div class="history-content hidden pt-1 overflow-hidden transition-all duration-200">
+                <p class="text-[14px] font-medium text-white mt-3 font-['Inter']">CapRul Enterprise</p>
+                <p class="text-[14px] text-[#A0A0A0] leading-relaxed mt-2 font-['Inter']">
+                  Mengelola social media branding, digital marketing, dan pengembangan infrastruktur web untuk berbagai layanan komersial.
+                </p>
+              </div>
+            </div>
+            <!-- Row 3: Tertutup -->
+            <div class="history-item cursor-pointer rounded-[14px] bg-[#FFFFFF] text-primary p-5 border border-[#EEEEEE] transition-all duration-200 select-none shadow-none" data-open="false">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 flex-1">
+                  <span class="history-period text-[14px] text-[#636363] font-['Inter'] whitespace-nowrap">2023 — 2026</span>
+                  <h3 class="history-title text-[16px] text-black font-semibold font-['Inter_Tight']">Siswa Teknik Komputer &amp; Jaringan (TKJ)</h3>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                  <span class="history-tag text-xs font-['Inter'] px-2.5 py-0.5 rounded-full border border-[#EEEEEE] text-[#636363]">Pendidikan</span>
+                  <span class="material-symbols-outlined history-chevron text-[16px] text-[#636363] transition-transform duration-200">expand_more</span>
+                </div>
+              </div>
+              <div class="history-content hidden pt-1 overflow-hidden transition-all duration-200">
+                <p class="text-[14px] font-medium text-white mt-3 font-['Inter']">SMK Muhammadiyah 2 Banjarmasin</p>
+                <p class="text-[14px] text-[#A0A0A0] leading-relaxed mt-2 font-['Inter']">
+                  Mendalami infrastruktur jaringan, konfigurasi server MikroTik untuk hotspot/PPPoE, serta instalasi dan penyambungan kabel fiber optic (FTTH).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 5. SECTION 2 — SKILL (#skill) -->
+    <section class="w-full bg-[#FFFFFF] border-t border-hairline py-28 md:py-32 px-6 md:px-12" id="skill">
+      <div class="max-w-[1280px] mx-auto">
+        <!-- Eyebrow: Uppercase, tracking-normal, Inter 12px -->
+        <span class="block text-[12px] font-normal text-black uppercase tracking-normal mb-3 font-['Inter']">
+          SKILLS
+        </span>
+        <!-- Two-column header & intro -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6">
+          <h2 class="font-['Inter_Tight'] font-semibold text-[36px] md:text-[44px] md:leading-[1.1] text-primary tracking-tight max-w-xl">
+            Keahlian yang Saya Bawa ke Setiap Proyek
+          </h2>
+          <p class="font-['Inter'] text-[14px] text-[#636363] leading-relaxed max-w-md">
+            Kombinasi kemahiran rekayasa kode front-end presisi tinggi dan pemahaman mendalam tentang prinsip tata letak sistem desain modular.
+          </p>
+        </div>
+        <!-- 4-Column Skill Card Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-16">
+          <!-- Card 1: Frontend Engineering -->
+          <div class="bg-[#F6F6F6] rounded-[20px] p-6 border-0 shadow-none min-h-[340px] flex flex-col justify-between">
+            <div class="w-14 h-14 rounded-full bg-[#FFF106] flex items-center justify-center shrink-0">
+              <svg aria-hidden="true" class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <div class="mt-8">
+              <h3 class="font-['Inter_Tight'] text-[18px] font-semibold text-black mb-4">Web Development</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  HTML/CSS
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  JavaScript
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  PHP 8.5
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  Tailwind CSS
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2: Database -->
+          <div class="bg-[#F6F6F6] rounded-[20px] p-6 border-0 shadow-none min-h-[340px] flex flex-col justify-between">
+            <div class="w-14 h-14 rounded-full bg-[#FFF106] flex items-center justify-center shrink-0">
+              <svg aria-hidden="true" class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <div class="mt-8">
+              <h3 class="font-['Inter_Tight'] text-[18px] font-semibold text-black mb-4">Database</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  MySQL
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  PostgreSQL
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  phpMyAdmin
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3: Python & Desktop/AI -->
+          <div class="bg-[#F6F6F6] rounded-[20px] p-6 border-0 shadow-none min-h-[340px] flex flex-col justify-between">
+            <div class="w-14 h-14 rounded-full bg-[#FFF106] flex items-center justify-center shrink-0">
+              <svg aria-hidden="true" class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <div class="mt-8">
+              <h3 class="font-['Inter_Tight'] text-[18px] font-semibold text-black mb-4">Python &amp; Desktop/AI</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  PyQt5
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  OpenCV
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  MediaPipe
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  Pygame
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4: Networking -->
+          <div class="bg-[#F6F6F6] rounded-[20px] p-6 border-0 shadow-none min-h-[340px] flex flex-col justify-between">
+            <div class="w-14 h-14 rounded-full bg-[#FFF106] flex items-center justify-center shrink-0">
+              <svg aria-hidden="true" class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+                <circle cx="18" cy="18" r="3"></circle>
+                <circle cx="6" cy="6" r="3"></circle>
+                <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+                <line x1="6" x2="6" y1="9" y2="21"></line>
+              </svg>
+            </div>
+            <div class="mt-8">
+              <h3 class="font-['Inter_Tight'] text-[18px] font-semibold text-black mb-4">Networking</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  MikroTik
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  FTTH/OLT
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  Fiber Optic Splicing
+                </span>
+                <span class="bg-white rounded-full border border-[#EEEEEE] px-3 py-1.5 flex items-center gap-1.5 text-xs font-medium text-black">
+                  <span class="w-1.5 h-1.5 rounded-full bg-black"></span>
+                  Cisco
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 6. SECTION — CERTIFICATE (#certificate) -->
+    <section class="w-full bg-[#FFFFFF] border-t border-hairline py-28 md:py-32 px-6 md:px-12 overflow-hidden" id="certificate">
+      <div class="max-w-[1280px] mx-auto">
+        <!-- Header Section: 2 sides flex -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10">
+          <div>
+            <h2 class="font-['Inter_Tight'] font-bold text-[36px] md:text-[44px] md:leading-[1.1] text-primary tracking-tight">
+              Sertifikat
+            </h2>
+            <p class="font-['Inter'] text-[14px] text-[#636363] leading-relaxed max-w-lg mt-3">
+              Validasi kompetensi teknis, standar profesional, dan kredensial terverifikasi yang didapatkan sepanjang perjalanan.
+            </p>
+          </div>
+          <!-- Right: Circle arrow controls (50px) -->
+          <div class="flex items-center gap-3 shrink-0">
+            <button aria-label="Sertifikat Sebelumnya" class="w-[50px] h-[50px] rounded-full bg-white border border-[#EEEEEE] flex items-center justify-center text-black hover:bg-[#F6F6F6] transition-colors duration-150 shadow-none cursor-pointer" id="cert-prev-btn" type="button">
+              <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+                <line x1="19" x2="5" y1="12" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+            <button aria-label="Sertifikat Berikutnya" class="w-[50px] h-[50px] rounded-full bg-[#0F0F0F] text-white flex items-center justify-center hover:bg-[#2A2A2A] transition-colors duration-150 shadow-none cursor-pointer" id="cert-next-btn" type="button">
+              <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+                <line x1="5" x2="19" y1="12" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- Slider Container: Cards partially visible on right affordance -->
+        <div class="relative -mx-6 md:-mx-12 px-6 md:px-12">
+          <div class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pb-6 pt-2" id="cert-slider">
+            <!-- Card 1 -->
+            <div class="cert-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-start bg-[#FFFFFF] border border-[#EEEEEE] rounded-[20px] p-4 flex flex-col justify-between transition-colors">
+              <div class="cert-image-trigger w-full aspect-[4/3] rounded-xl bg-[#F5F5F5] border border-[#EEEEEE] p-6 flex flex-col justify-between cursor-pointer select-none group" data-cert-id="1" data-date="2026" data-id="UKK-2026" data-issuer="SMK Muhammadiyah 2 Banjarmasin" data-title="Ujian Kompetensi Keahlian TKJ">
+                <div class="flex items-center justify-between">
+                  <span class="font-['Inter'] text-[11px] font-semibold tracking-wider uppercase text-[#636363] border border-[#E0E0E0] rounded-full px-2.5 py-1 bg-white">KOMPETENSI</span>
+                  <span class="material-symbols-outlined text-[18px] text-[#636363] group-hover:text-black transition-colors">fullscreen</span>
+                </div>
+                <div class="my-auto text-center py-4">
+                  <div class="w-12 h-12 rounded-full bg-white border border-[#E5E5E5] mx-auto flex items-center justify-center mb-3">
+                    <svg aria-hidden="true" class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                  </div>
+                  <span class="block font-['Inter_Tight'] font-bold text-[17px] text-black tracking-tight">UKK TKJ 2026</span>
+                  <span class="block font-['Inter'] text-[12px] text-[#636363] tracking-wide mt-0.5">SMK MUHAMMADIYAH 2</span>
+                </div>
+                <div class="flex items-center justify-between pt-2 border-t border-[#E5E5E5]/70 text-[11px] font-['Inter'] text-[#8E8E8E]">
+                  <span>ID: UKK-2026</span>
+                  <span class="text-black font-medium">TERVERIFIKASI</span>
+                </div>
+              </div>
+              <div class="pt-4 flex flex-col gap-1.5">
+                <h3 class="font-['Inter_Tight'] font-semibold text-[17px] text-black">Ujian Kompetensi Keahlian TKJ</h3>
+                <p class="font-['Inter'] text-[14px] text-[#636363]">SMK Muhammadiyah 2 Banjarmasin • 2026</p>
+                <div class="pt-2">
+                  <button class="cert-link font-['Inter'] text-[14px] text-black underline underline-offset-4 font-medium hover:opacity-70 transition-opacity cursor-pointer p-0 bg-transparent border-0 inline-flex items-center gap-1" data-cert-id="1" type="button">
+                    Lihat Kredensial
+                    <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Progress Rail (Track 2px #EEEEEE, Thumb 2px #7A7A7A) -->
+        <div class="w-full mt-6">
+          <div class="w-full h-[2px] bg-[#EEEEEE] relative rounded-full overflow-hidden">
+            <div class="h-full bg-[#7A7A7A] absolute left-0 top-0 transition-[left,width] duration-75" id="cert-progress-thumb" style="width: 100%; left: 0%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Lightbox Modal for Certificate Detail -->
+    <div aria-modal="true" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 md:p-8" id="cert-lightbox" role="dialog">
+      <!-- Backdrop -->
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" id="cert-lightbox-backdrop"></div>
+      <!-- Modal Container -->
+      <div class="relative z-10 w-full max-w-2xl bg-white rounded-[20px] border border-[#EEEEEE] p-6 md:p-8 flex flex-col gap-6 shadow-none">
+        <!-- Modal Header -->
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span class="font-['Inter'] text-[12px] uppercase text-[#636363] tracking-normal" id="modal-cert-issuer">SMK Muhammadiyah 2 Banjarmasin • 2026</span>
+            <h3 class="font-['Inter_Tight'] text-[22px] md:text-[26px] font-bold text-black mt-1" id="modal-cert-title">Ujian Kompetensi Keahlian TKJ</h3>
+          </div>
+          <button aria-label="Tutup Detail" class="w-[50px] h-[50px] rounded-full bg-white border border-[#EEEEEE] flex items-center justify-center text-black hover:bg-[#F6F6F6] transition-colors shrink-0 cursor-pointer" id="cert-lightbox-close" type="button">
+            <span class="material-symbols-outlined text-[20px]">close</span>
+          </button>
+        </div>
+        <!-- High-fidelity Certificate Graphic Display -->
+        <div class="w-full aspect-[4/3] rounded-xl bg-[#F5F5F5] border border-[#EEEEEE] p-8 md:p-10 flex flex-col justify-between select-none">
+          <div class="flex items-center justify-between border-b border-[#E5E5E5] pb-4">
+            <span class="font-['Inter'] text-[12px] font-semibold text-black uppercase tracking-wider">OFFICIAL VERIFIED CERTIFICATE</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#FFF106] border border-black/20"></span>
+          </div>
+          <div class="text-center my-auto py-6">
+            <div class="w-16 h-16 rounded-full bg-white border border-[#E5E5E5] mx-auto flex items-center justify-center mb-4">
+              <svg aria-hidden="true" class="w-8 h-8 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+            </div>
+            <p class="font-['Inter'] text-[12px] text-[#636363] uppercase tracking-wider mb-1">DIBERIKAN KEPADA</p>
+            <h4 class="font-['Inter_Tight'] font-bold text-[24px] text-black mb-1">Rahmat.Tech</h4>
+            <p class="font-['Inter'] text-[13px] text-[#636363]" id="modal-cert-spec">Atas keberhasilan penyelesaian sertifikasi keahlian.</p>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-[#E5E5E5] text-[12px] font-['Inter'] text-[#636363]">
+            <span>ID Kredensial: <span class="text-black font-medium" id="modal-cert-id">UKK-2026</span></span>
+            <span class="text-black font-semibold">STATUS: AKTIF &amp; RESMI</span>
+          </div>
+        </div>
+        <!-- Modal Actions -->
+        <div class="flex items-center justify-between pt-2">
+          <span class="font-['Inter'] text-[13px] text-[#636363]">Kredensial digital ini dapat diverifikasi publik.</span>
+          <button class="bg-[#0F0F0F] text-white px-5 py-2.5 rounded-full font-['Inter'] text-[13px] font-medium hover:bg-[#2A2A2A] transition-colors" id="cert-lightbox-verify-btn" type="button">Verifikasi di Sumber Resmi</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 7. SECTION 1 — FEATURED PROJECT (#projects) -->
+    <section class="w-full bg-[#0F0F0F] text-white rounded-[32px] pt-24 md:pt-28 pb-12 px-6 md:px-12 mt-24" id="projects">
+      <div class="max-w-[1280px] mx-auto">
+        <!-- Giant Heading -->
+        <h2 class="font-['Inter_Tight'] font-semibold text-white tracking-[-0.04em] text-[56px] sm:text-[76px] md:text-[96px] lg:text-[110px] leading-[0.95] text-left uppercase">
+          Featured Project
+        </h2>
+        <!-- Subtitle Baris Pengantar & Lihat Semua Pill -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mt-8 pb-12 border-b border-white/10">
+          <p class="font-['Inter'] text-[15px] md:text-[16px] text-[#A0A0A0] leading-relaxed max-w-xl font-normal">
+            Pilihan karya terpilih yang mendemonstrasikan perancangan antarmuka tingkat lanjut, performa terukur, dan keahlian teknis.
+          </p>
+          <a class="inline-flex items-center justify-center gap-2 border border-white text-white px-6 h-[46px] rounded-full font-['Inter_Tight'] text-[14px] font-medium hover:bg-white hover:text-black transition-all duration-150 shrink-0 self-start md:self-auto" href="https://github.com/Amat-JuniorWebDev" rel="noopener noreferrer" target="_blank">
+            <span>Lihat Semua Proyek</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+          </a>
+        </div>
+        <!-- 3-Column Project Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+          <!-- Card 1 -->
+          <article class="flex flex-col gap-4 group">
+            <!-- Outer White Frame (padding 5px, rounded-[20px]) -->
+            <div class="w-full bg-[#FFFFFF] p-1.5 rounded-[20px] transition-transform duration-200 group-hover:-translate-y-1">
+              <div class="w-full aspect-[16/10] rounded-[16px] bg-[#141414] overflow-hidden relative border border-black/10 flex flex-col justify-between p-5">
+                <div class="flex items-center justify-between z-10">
+                  <span class="text-[11px] font-semibold text-black uppercase tracking-wider bg-[#FFF106] px-2.5 py-0.5 rounded-full font-['Inter']">Edu Game</span>
+                  <span class="text-[11px] font-medium text-white/70 bg-white/10 px-2 py-0.5 rounded-full font-['Inter']">2026</span>
+                </div>
+                <!-- Minimalist Project UI Graphic Representation -->
+                <div class="my-auto flex flex-col gap-2.5 max-w-[240px] mx-auto w-full py-2">
+                  <div class="h-2 bg-white/20 rounded-full w-3/4"></div>
+                  <div class="h-2 bg-white/10 rounded-full w-full"></div>
+                  <div class="h-2 bg-white/15 rounded-full w-5/6"></div>
+                  <div class="grid grid-cols-3 gap-2 pt-2">
+                    <div class="h-10 bg-white/10 rounded-lg"></div>
+                    <div class="h-10 bg-white/10 rounded-lg"></div>
+                    <div class="h-10 bg-[#FFF106]/20 border border-[#FFF106]/40 rounded-lg"></div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-[11px] font-['Inter'] text-white/50 border-t border-white/10 pt-2">
+                  <span>M-ONE Telkomsel Coding</span>
+                  <span class="text-[#FFF106]">Awarded</span>
+                </div>
+              </div>
+            </div>
+            <!-- Details below frame -->
+            <div class="flex items-start justify-between gap-3 pt-1">
+              <div class="flex flex-col gap-1">
+                <h3 class="font-['Inter_Tight'] font-semibold text-[18px] text-white tracking-tight group-hover:text-[#FFF106] transition-colors">
+                  NusaBlox
+                </h3>
+                <p class="font-['Inter'] text-[13px] text-[#8E8E8E]">
+                  Vanilla JS • PHP • Tailwind CSS
+                </p>
+              </div>
+              <!-- Action Icons -->
+              <div class="flex items-center gap-1.5 shrink-0">
+                <a aria-label="GitHub Repo NusaBlox" class="w-8 h-8 rounded-full border border-white/30 hover:border-white hover:bg-white hover:text-black text-white flex items-center justify-center transition-all duration-150" href="https://github.com/Amat-JuniorWebDev/nusablox-edugame-sd" rel="noopener noreferrer" target="_blank">
+                  <svg aria-hidden="true" class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+                </a>
+              </div>
+            </div>
+            <p class="font-['Inter'] text-[13px] text-[#A0A0A0] leading-relaxed line-clamp-2">
+              Platform game edukasi anak SD dengan UI Soft Pastel Claymorphism, sistem profil tanpa password, dan ekonomi virtual BloxKoin.
+            </p>
+          </article>
+          <!-- Card 2 -->
+          <article class="flex flex-col gap-4 group">
+            <!-- Outer White Frame -->
+            <div class="w-full bg-[#FFFFFF] p-1.5 rounded-[20px] transition-transform duration-200 group-hover:-translate-y-1">
+              <div class="w-full aspect-[16/10] rounded-[16px] bg-[#141414] overflow-hidden relative border border-black/10 flex flex-col justify-between p-5">
+                <div class="flex items-center justify-between z-10">
+                  <span class="text-[11px] font-semibold text-black uppercase tracking-wider bg-[#FFF106] px-2.5 py-0.5 rounded-full font-['Inter']">Portal Login</span>
+                  <span class="text-[11px] font-medium text-white/70 bg-white/10 px-2 py-0.5 rounded-full font-['Inter']">2026</span>
+                </div>
+                <!-- Minimalist Project UI Graphic Representation -->
+                <div class="my-auto flex flex-col gap-2 max-w-[240px] mx-auto w-full py-2">
+                  <div class="flex items-end justify-between gap-1.5 h-14 pt-2">
+                    <div class="w-full bg-white/10 rounded-t h-[40%]"></div>
+                    <div class="w-full bg-white/15 rounded-t h-[65%]"></div>
+                    <div class="w-full bg-white/20 rounded-t h-[50%]"></div>
+                    <div class="w-full bg-white/25 rounded-t h-[85%]"></div>
+                    <div class="w-full bg-[#FFF106] rounded-t h-[100%]"></div>
+                    <div class="w-full bg-white/20 rounded-t h-[70%]"></div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-[11px] font-['Inter'] text-white/50 border-t border-white/10 pt-2">
+                  <span>Glassmorphism</span>
+                  <span class="text-[#FFF106]">Responsive</span>
+                </div>
+              </div>
+            </div>
+            <!-- Details below frame -->
+            <div class="flex items-start justify-between gap-3 pt-1">
+              <div class="flex flex-col gap-1">
+                <h3 class="font-['Inter_Tight'] font-semibold text-[18px] text-white tracking-tight group-hover:text-[#FFF106] transition-colors">
+                  MikroTik Hotspot Portal
+                </h3>
+                <p class="font-['Inter'] text-[13px] text-[#8E8E8E]">
+                  HTML • CSS • JavaScript
+                </p>
+              </div>
+            </div>
+            <p class="font-['Inter'] text-[13px] text-[#A0A0A0] leading-relaxed line-clamp-2">
+              Halaman login hotspot kustom untuk ujian praktik UKK dengan tema hijau-emas, jam digital, dan sistem variabel MikroTik terintegrasi.
+            </p>
+          </article>
+          <!-- Card 3 -->
+          <article class="flex flex-col gap-4 group">
+            <!-- Outer White Frame -->
+            <div class="w-full bg-[#FFFFFF] p-1.5 rounded-[20px] transition-transform duration-200 group-hover:-translate-y-1">
+              <div class="w-full aspect-[16/10] rounded-[16px] bg-[#141414] overflow-hidden relative border border-black/10 flex flex-col justify-between p-5">
+                <div class="flex items-center justify-between z-10">
+                  <span class="text-[11px] font-semibold text-black uppercase tracking-wider bg-[#FFF106] px-2.5 py-0.5 rounded-full font-['Inter']">Web Portfolio</span>
+                  <span class="text-[11px] font-medium text-white/70 bg-white/10 px-2 py-0.5 rounded-full font-['Inter']">2026</span>
+                </div>
+                <!-- Minimalist Project UI Graphic Representation -->
+                <div class="my-auto flex flex-col gap-2 max-w-[240px] mx-auto w-full py-2">
+                  <div class="border border-white/20 p-2.5 rounded-lg flex flex-col gap-1.5">
+                    <div class="font-['Inter_Tight'] font-bold text-white text-[13px] tracking-tight">PORTFOLIO V2.0</div>
+                    <div class="h-1 bg-white/20 rounded w-full"></div>
+                    <div class="h-1 bg-white/10 rounded w-4/5"></div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-[11px] font-['Inter'] text-white/50 border-t border-white/10 pt-2">
+                  <span>Class Project</span>
+                  <span class="text-[#FFF106]">Live</span>
+                </div>
+              </div>
+            </div>
+            <!-- Details below frame -->
+            <div class="flex items-start justify-between gap-3 pt-1">
+              <div class="flex flex-col gap-1">
+                <h3 class="font-['Inter_Tight'] font-semibold text-[18px] text-white tracking-tight group-hover:text-[#FFF106] transition-colors">
+                  Portfolio TI Reg D BJM
+                </h3>
+                <p class="font-['Inter'] text-[13px] text-[#8E8E8E]">
+                  Web Design • UI/UX
+                </p>
+              </div>
+            </div>
+            <p class="font-['Inter'] text-[13px] text-[#A0A0A0] leading-relaxed line-clamp-2">
+              Website portofolio kelas versi 2.0 dengan desain responsif, mengatasi bug tata letak, dan pengolahan data terstruktur.
+            </p>
+          </article>
+        </div>
+      </section>
+      
+      <!-- 8. GET IN TOUCH SECTION (#contact) -->
+      <section class="max-w-[1280px] mx-auto mt-[120px]" id="contact">
+        <!-- Yellow CTA Card with Two Organic Black Ribbons -->
+        <div class="relative bg-[#FFF106] rounded-[24px] overflow-hidden py-16 px-6 sm:px-10 md:px-16 text-black">
+          <!-- Top-Left Organic Black Ribbon SVG -->
+          <svg aria-hidden="true" class="absolute -top-1 -left-1 w-[260px] sm:w-[320px] md:w-[380px] h-auto pointer-events-none text-[#0F0F0F] z-0" fill="currentColor" preserveaspectratio="none" viewbox="0 0 380 240">
+            <path d="M0 0 L292 0 C214 68 90 135 -22 191 L0 191 Z"></path>
+          </svg>
+          <!-- Top-Right Organic Black Ribbon SVG -->
+          <svg aria-hidden="true" class="absolute -top-1 -right-1 w-[260px] sm:w-[320px] md:w-[380px] h-auto pointer-events-none text-[#0F0F0F] z-0" fill="currentColor" preserveaspectratio="none" viewbox="0 0 380 240">
+            <path d="M380 0 L88 0 C166 68 290 135 402 191 L380 191 Z"></path>
+          </svg>
+          <!-- Main Content Container Centered -->
+          <div class="relative z-10 max-w-[620px] mx-auto flex flex-col items-center text-center">
+            <!-- Eyebrow Pill -->
+            <span class="inline-block px-3 py-1 rounded-full bg-black text-[#FFF106] text-[11px] font-semibold tracking-wider uppercase mb-5 font-['Inter']">
+              Get In Touch • Kolaborasi
+            </span>
+            <!-- Headline -->
+            <h2 class="font-['Inter_Tight'] font-bold text-[38px] sm:text-[48px] md:text-[54px] leading-[1.05] tracking-tight text-[#0F0F0F]">
+              Punya Ide?<br/>Mari Kita Wujudkan!
+            </h2>
+            <p class="font-['Inter'] text-[15px] text-black/75 mt-4 leading-relaxed max-w-lg">
+              Terbuka untuk kolaborasi proyek pengembangan web, implementasi antarmuka, dan perancangan aplikasi.
+            </p>
+            <!-- Clean Centered Contact Form -->
+            <form class="w-full max-w-[560px] mx-auto mt-8 flex flex-col gap-4 text-left" id="contact-form" onsubmit="event.preventDefault(); const status = document.getElementById('contact-status'); const btn = document.getElementById('contact-submit-btn'); if(btn && status){ btn.disabled = true; btn.innerText = 'Mengirim...'; setTimeout(() => { btn.innerText = 'Terkirim ✓'; status.classList.remove('hidden'); }, 600); }">
+              <!-- Grid 2 Kolom Nama & Email -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-[12px] font-semibold text-black uppercase tracking-wider font-['Inter']" for="contact-name">Nama Lengkap</label>
+                  <input class="w-full h-12 rounded-[14px] bg-white border border-transparent px-4 text-[14px] text-black placeholder-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black font-['Inter']" id="contact-name" placeholder="Nama Anda" required="" type="text"/>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="text-[12px] font-semibold text-black uppercase tracking-wider font-['Inter']" for="contact-email">Alamat Email</label>
+                  <input class="w-full h-12 rounded-[14px] bg-white border border-transparent px-4 text-[14px] text-black placeholder-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black font-['Inter']" id="contact-email" placeholder="email@domain.com" required="" type="email"/>
+                </div>
+              </div>
+              <!-- Pesan Textarea -->
+              <div class="flex flex-col gap-1.5">
+                <label class="text-[12px] font-semibold text-black uppercase tracking-wider font-['Inter']" for="contact-message">Pesan Anda</label>
+                <textarea class="w-full rounded-[14px] bg-white border border-transparent p-4 text-[14px] text-black placeholder-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black font-['Inter'] resize-none" id="contact-message" placeholder="Ceritakan tentang kebutuhan proyek atau kolaborasi..." required="" rows="4"></textarea>
+              </div>
+              <!-- Action Buttons Row -->
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                <button class="w-full sm:w-auto px-8 h-12 rounded-full bg-[#0F0F0F] text-white font-['Inter_Tight'] text-[14px] font-semibold hover:bg-[#2A2A2A] transition-colors duration-150 inline-flex items-center justify-center gap-2 cursor-pointer shadow-none" id="contact-submit-btn" type="submit">
+                  <span>Kirim Pesan</span>
+                  <span class="material-symbols-outlined text-[16px]">send</span>
+                </button>
+              </div>
+              <!-- Dynamic Interactive Status Notice -->
+              <div class="hidden text-center text-[13px] font-medium text-black bg-white/70 py-2.5 px-4 rounded-xl font-['Inter'] mt-1 border border-black/10" id="contact-status">
+                Terima kasih! Pesan Anda telah berhasil terkirim.
+              </div>
+            </form>
+            <!-- Direct Contact and Social Handles Row -->
+            <div class="mt-10 pt-8 border-t border-black/15 w-full flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div class="flex items-center gap-2.5 mx-auto">
+                <a aria-label="GitHub Profile" class="w-9 h-9 rounded-full bg-white border border-black/15 flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors duration-150" href="https://github.com/Amat-JuniorWebDev" rel="noopener noreferrer" target="_blank">
+                  <svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 9. FOOTER -->
+      <footer class="max-w-[1280px] mx-auto mt-24 pt-16 pb-6 border-t border-white/10">
+        <!-- 4-Column Editorial Layout -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 pb-16">
+          <!-- Kolom 1: Navigasi -->
+          <div class="flex flex-col gap-3 font-['Inter']">
+            <span class="text-[12px] font-semibold uppercase tracking-wider text-white mb-1 font-['Inter_Tight']">Navigasi</span>
+            <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#about">Home</a>
+            <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#history">Roadmap</a>
+            <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#skill">Skill</a>
+            <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#certificate">Sertifikat</a>
+            <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#projects">Projects</a>
+            <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#contact">Contact</a>
+          </div>
+          <!-- Kolom 2: Featured Projects -->
+          <div class="flex flex-col gap-3 font-['Inter']">
+            <span class="text-[12px] font-semibold uppercase tracking-wider text-white mb-1 font-['Inter_Tight']">Proyek Terpilih</span>
+            <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#projects">NusaBlox</a>
+            <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#projects">MikroTik Hotspot Portal</a>
+            <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#projects">Portfolio TI Reg D BJM</a>
+            <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="https://github.com/Amat-JuniorWebDev" rel="noopener noreferrer" target="_blank">Lihat Semua Repositori ↗</a>
+          </div>
+          <!-- Kolom 3: Lokasi -->
+          <div class="flex flex-col gap-3 font-['Inter']">
+            <span class="text-[12px] font-semibold uppercase tracking-wider text-white mb-1 font-['Inter_Tight']">Lokasi</span>
+            <span class="text-[14px] text-[#8E8E8E]">Banjarmasin, Indonesia</span>
+            <div class="pt-2 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#FFF106]"></span>
+              <span class="text-[13px] text-[#A0A0A0]">Terbuka untuk Proyek Lepas</span>
+            </div>
+          </div>
+          <!-- Kolom 4: Stay Connected (Socials) -->
+          <div class="flex flex-col gap-3 font-['Inter']">
+            <span class="text-[12px] font-semibold uppercase tracking-wider text-white mb-1 font-['Inter_Tight']">Stay Connected</span>
+            <div class="flex items-center gap-2 pt-1">
+              <a aria-label="GitHub" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors duration-150" href="https://github.com/Amat-JuniorWebDev" rel="noopener noreferrer" target="_blank">
+                <svg aria-hidden="true" class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Row Editorial Line -->
+        <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[12px] font-['Inter'] text-[#8E8E8E]">
+          <p class="max-w-md">
+            Menghadirkan karya fungsional, terstruktur, dan presisi.
+          </p>
+          <p class="text-right uppercase tracking-wider">
+            © 2026 Rahmat.Tech. ALL RIGHTS RESERVED. SWISS MODERN EDITORIAL.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </main>
+  
+  <!-- Micro-interaction Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>
