@@ -18,18 +18,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ========================================================
-   BASE EDITORIAL GLOW (Mengikuti Kode Aslimu)
-   ======================================================== */
+/* Base Editorial Glow */
 .hero-glow-layer {
-  background: radial-gradient(circle at 15% 15%, #FFF75D 0%, rgba(255, 247, 93, 0.4) 30%, transparent 65%),
-              radial-gradient(circle at 85% 20%, #FFF46E 0%, rgba(255, 244, 110, 0.35) 30%, transparent 65%),
+  background: radial-gradient(circle at 15% 15%, #E5E5E5 0%, rgba(229, 229, 229, 0.4) 30%, transparent 65%),
+              radial-gradient(circle at 85% 20%, #D4D4D4 0%, rgba(212, 212, 212, 0.35) 30%, transparent 65%),
               radial-gradient(circle at 50% 50%, #FFFFFF 0%, #FFFFFF 100%);
 }
 
-/* ========================================================
-   PERBAIKAN PRIORITAS 1: NOISE LAYER BEBAS LAG (Pengganti SVG yang berat)
-   ======================================================== */
+/* Base64 Noise Layer (Bebas Lag) */
 .hero-noise-layer {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAP////8AAAAAAAAAAAAAAAAAAAA/oyTPAAAACHRSTlMAAAAAAAB17+k4G7QAAAEASURBVDjLpZTbEcMwDARCQSmU8t/aQ/ePTIAkX0+QzM4Pq92VxN7X+1z1vL/fM+r+vs/9vt/3ed7X67nf1/P+zuv5fr/H+7z/x3t/7/v8/n/P833//j/vdT/P+33+1/M+1/0+z/089/38P9f1/B/3/TzP63W/3/t9nuv1vM/3eb7v+3ldz/0+9/v7P/fzPO/r/T7Xcz/v/bzv93re//N9vu/3fT739/s+r+d+3//5vs/7fK/7fX+v5/U+7/O+nuf5vt/3cz/P67me9/N9v//neb7P+30+9/N8n9f1vt/v+zyf536/3/t9X9f1fJ/3+zzv9/u8ruf1Pu/zfD/X9Xyf9/s83+d+z/N5Pffz/l/ncz2v5/M+130+z/P9fB9+1N3k082H+gAAAABJRU5ErkJggg==");
   background-repeat: repeat;
@@ -40,12 +36,7 @@
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-
-/* ========================================================
-   PERBAIKAN PRIORITAS 1: ANIMATION UTILITIES (Hardware Accelerated GPU)
-   ======================================================== */
-
-/* CSS Auto Animation (Spesifik untuk Hero agar langsung jalan) */
+/* ANIMATION UTILITIES (Hardware Accelerated) */
 @keyframes fadeUpHero {
   from { opacity: 0; transform: translate3d(0, 40px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
@@ -57,7 +48,6 @@
   will-change: opacity, transform;
 }
 
-/* Scroll Animations (Dipicu oleh JS untuk sisa Section lainnya) */
 .reveal-up {
   opacity: 0;
   transform: translate3d(0, 40px, 0);
@@ -70,33 +60,21 @@
   transform: translate3d(0, 0, 0) !important;
 }
 
-
-/* ========================================================
-   PERBAIKAN PRIORITAS 2: RESPONSIVE DESIGN & MOBILE FIXES
-   ======================================================== */
-
-/* Tablet (Portrait & Landscape) */
+/* RESPONSIVE DESIGN & MOBILE FIXES */
 @media (max-width: 1024px) {
-  /* Matikan noise statis di HP dan Tablet untuk meringankan memori */
   .hero-noise-layer { display: none !important; }
 }
 
-/* Mobile Devices */
 @media (max-width: 767px) {
-  /* Cegah horizontal scroll yang membuat layout tumpah ke samping */
   body, html {
     overflow-x: hidden !important;
     width: 100%;
     position: relative;
   }
-
-  /* Amankan margin dalam konten */
   section {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
   }
-
-  /* Cegah layout form men-zoom layar di Safari iOS/iPhone */
   input[type="text"], input[type="email"], textarea {
     font-size: 16px !important;
   }

@@ -179,15 +179,10 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-
-// ========================================================
-// PERBAIKAN PRIORITAS 1: SCROLL REVEAL ANIMATIONS (OPTIMAL)
-// ========================================================
+// SCROLL REVEAL ANIMATIONS (OPTIMAL)
 document.addEventListener('DOMContentLoaded', () => {
-  // Hanya menargetkan elemen yang punya class .reveal-up
   const animatedElements = document.querySelectorAll('.reveal-up');
 
-  // Berikan sedikit delay pada grid agar animasinya bertingkat (stagger)
   animatedElements.forEach((el, index) => {
     if (el.closest('.grid') && !el.closest('form')) {
       const delay = (index % 4) * 100; 
@@ -195,12 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Gunakan observer ringan
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        // Hapus delay setelah muncul agar efek hover card tidak tertunda
         setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 1000);
         observer.unobserve(entry.target);
       }
