@@ -180,34 +180,27 @@ window.addEventListener('keydown', (e) => {
 });
 
 
-// (Pertahankan logika Mobile Menu & Accordion milikmu yang sebelumnya, lalu tambahkan bagian bawah ini)
-
 // ========================================================
 // PERBAIKAN PRIORITAS 1: SCROLL REVEAL ANIMATIONS (OPTIMAL)
 // ========================================================
 document.addEventListener('DOMContentLoaded', () => {
-  const animatedElements = document.querySelectorAll(`
-    #tentang-saya h2, #tentang-saya p, #tentang-saya img, #tentang-saya a,
-    #history h2, #history p, .history-item,
-    #skill h2, #skill p, #skill .grid > div,
-    #certificate h2, #certificate p, .cert-card,
-    #projects h2, #projects p, #projects article,
-    #contact h2, #contact p, #contact form, #contact .flex-col
-  `);
+  // Hanya menargetkan elemen yang punya class .reveal-up
+  const animatedElements = document.querySelectorAll('.reveal-up');
 
+  // Berikan sedikit delay pada grid agar animasinya bertingkat (stagger)
   animatedElements.forEach((el, index) => {
-    el.classList.add('reveal-up');
     if (el.closest('.grid') && !el.closest('form')) {
       const delay = (index % 4) * 100; 
       el.style.transitionDelay = `${delay}ms`;
     }
   });
 
+  // Gunakan observer ringan
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        // Hapus delay setelah muncul agar hover tidak ngelag
+        // Hapus delay setelah muncul agar efek hover card tidak tertunda
         setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 1000);
         observer.unobserve(entry.target);
       }
