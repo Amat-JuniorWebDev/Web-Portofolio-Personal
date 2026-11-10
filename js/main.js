@@ -179,7 +179,7 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-// SCROLL REVEAL ANIMATIONS (OPTIMAL)
+// SCROLL REVEAL ANIMATIONS (SMOOTH ELEGANT)
 document.addEventListener('DOMContentLoaded', () => {
   const animatedElements = document.querySelectorAll('.reveal-up');
 
@@ -194,7 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 1000);
+        // Delay hapus dipanjangkan agar sejalan dengan animasi lambat
+        setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 1500);
         observer.unobserve(entry.target);
       }
     });
