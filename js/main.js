@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animatedElements.forEach((el, index) => {
     if (el.closest('.grid') && !el.closest('form')) {
-      const delay = (index % 4) * 100; 
+      const delay = (index % 4) * 150; 
       el.style.transitionDelay = `${delay}ms`;
     }
   });
@@ -194,8 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        // Jeda waktu penghapusan transisi diatur ke 1500ms agar sejalan dengan durasi animasi yang lebih elegan (1.4s)
-        setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 1500);
+        // Jeda dihapus lebih lama agar sinkron dengan durasi CSS animasi 1.8 detik
+        setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 2000);
         observer.unobserve(entry.target);
       }
     });
