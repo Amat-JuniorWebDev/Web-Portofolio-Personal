@@ -38,19 +38,19 @@
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+
 /* ========================================================
    ANIMATION UTILITIES (Elegan, Halus & Smooth)
    ======================================================== */
 
-/* CSS Auto Animation (Spesifik untuk Hero) */
+/* CSS Auto Animation (Spesifik untuk Hero agar elegan dan berat) */
 @keyframes fadeUpHero {
   from { opacity: 0; transform: translate3d(0, 60px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
 .hero-animate {
-  /* Durasi diperpanjang ke 1.2s dan timing-function diubah agar jauh lebih smooth */
-  animation: fadeUpHero 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeUpHero 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   opacity: 0; 
   will-change: opacity, transform;
 }
@@ -58,8 +58,7 @@
 .reveal-up {
   opacity: 0;
   transform: translate3d(0, 60px, 0);
-  /* Transisi diperhalus dengan durasi lebih panjang dan bezier lengkung elegan */
-  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1), transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
@@ -68,23 +67,29 @@
   transform: translate3d(0, 0, 0) !important;
 }
 
+
 /* ========================================================
    RESPONSIVE DESIGN & MOBILE FIXES
    ======================================================== */
 @media (max-width: 1024px) {
+  /* Matikan noise di HP dan Tablet untuk meringankan memori */
   .hero-noise-layer { display: none !important; }
 }
 
 @media (max-width: 767px) {
+  /* Mencegah horizontal scroll (layar tumpah ke kanan) */
   body, html {
     overflow-x: hidden !important;
     width: 100%;
     position: relative;
   }
+  
   section {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
   }
+  
+  /* Mencegah Zoom otomatis saat mengisi form di HP */
   input[type="text"], input[type="email"], textarea {
     font-size: 16px !important;
   }

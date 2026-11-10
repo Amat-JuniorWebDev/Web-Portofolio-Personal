@@ -10,9 +10,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   
-  <link href="css/style.css" rel="stylesheet"/>
+  <!-- Tailwind CSS & Config -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script src="js/tailwind-config.js"></script>
+
+  <!-- SCRIPT AUTO-REALTIME (Pengganti PHP echo time) -->
+  <script>
+    // Memaksa load CSS & JS versi terbaru setiap kali halaman di-refresh
+    document.addEventListener("DOMContentLoaded", function() {
+      var ts = new Date().getTime(); // Dapatkan timestamp saat ini
+      
+      // Load CSS Realtime
+      var cssLink = document.createElement("link");
+      cssLink.rel = "stylesheet";
+      cssLink.href = "css/style.css?v=" + ts;
+      document.head.appendChild(cssLink);
+      
+      // Load JS Realtime
+      var jsScript = document.createElement("script");
+      jsScript.src = "js/main.js?v=" + ts;
+      document.body.appendChild(jsScript);
+    });
+  </script>
 </head>
 <body class="bg-[#FFFFFF] text-primary antialiased selection:bg-[#FFF106] selection:text-primary min-h-screen overflow-x-hidden">
   
@@ -47,44 +66,48 @@
   
   <main>
     <!-- 2. HERO SECTION (#about) -->
-    <section class="relative w-full min-h-[100dvh] md:min-h-[750px] overflow-hidden hero-glow-layer" id="about">
+    <!-- PERBAIKAN: Flex column digunakan untuk merapikan layout, background akan mengikuti hingga batas section terbawah -->
+    <section class="relative w-full min-h-[100dvh] flex flex-col overflow-hidden hero-glow-layer pt-24" id="about">
       
       <!-- Noise Effect Super Ringan (Bebas Lag) -->
       <div class="absolute inset-0 pointer-events-none z-[1] hero-noise-layer opacity-40"></div>
       
       <!-- Giant Wordmark Behind Cutout Portrait -->
-      <div class="absolute top-[35%] md:top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 select-none pointer-events-none w-full px-4 flex justify-center">
-        <h1 class="font-['Inter_Tight'] text-[28vw] sm:text-[24vw] md:text-[22vw] lg:text-[18vw] leading-[0.8] tracking-[-0.05em] text-primary font-black uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
+      <!-- PERBAIKAN: Teks diposisikan relative di HP, dan absolute di Desktop agar tidak acak-acakan -->
+      <div class="relative md:absolute top-auto md:top-[40%] left-0 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-10 select-none pointer-events-none w-full px-4 flex justify-center mt-8 md:mt-0">
+        <h1 class="font-['Inter_Tight'] text-[24vw] sm:text-[24vw] md:text-[22vw] lg:text-[18vw] leading-[0.8] tracking-[-0.05em] text-primary font-black uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
           RAHMAT©
         </h1>
       </div>
       
       <!-- Side Editorial Texts -->
-      <div class="absolute top-[50%] md:top-[70%] -translate-y-1/2 left-6 md:left-12 z-30 max-w-[240px] md:max-w-[280px] pointer-events-auto hidden sm:block hero-animate" style="animation-delay: 300ms;">
-        <p class="font-['Inter'] text-[12px] md:text-[14px] text-primary leading-[1.6] font-medium bg-white/50 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-3 md:p-0 rounded-xl">
+      <!-- PERBAIKAN: Di HP jadi flow biasa agar rapi, di Desktop melayang presisi (Flanking Text) -->
+      <div class="relative md:absolute top-auto md:top-[65%] lg:top-[70%] left-0 md:left-12 md:-translate-y-1/2 z-30 w-full md:w-auto md:max-w-[280px] pointer-events-auto px-6 mt-6 md:mt-0 hero-animate" style="animation-delay: 300ms;">
+        <p class="font-['Inter'] text-[13px] md:text-[14px] text-primary leading-[1.6] font-medium bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-xl text-center md:text-left">
           Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
         </p>
       </div>
       
-      <div class="absolute top-[50%] md:top-[70%] -translate-y-1/2 right-6 md:right-12 z-30 max-w-[240px] md:max-w-[280px] text-right pointer-events-auto hidden sm:block hero-animate" style="animation-delay: 500ms;">
-        <p class="font-['Inter'] text-[12px] md:text-[14px] text-primary leading-[1.6] font-medium bg-white/50 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-3 md:p-0 rounded-xl">
+      <div class="relative md:absolute top-auto md:top-[65%] lg:top-[70%] right-0 md:right-12 md:-translate-y-1/2 z-30 w-full md:w-auto md:max-w-[280px] text-center md:text-right pointer-events-auto px-6 mt-4 md:mt-0 hero-animate" style="animation-delay: 500ms;">
+        <p class="font-['Inter'] text-[13px] md:text-[14px] text-primary leading-[1.6] font-medium bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-xl">
           Menghadirkan pengalaman digital yang fungsional, bersih, dan berbobot tanpa ornamen berlebih.
         </p>
       </div>
       
-      <!-- Cut-out Portrait: 100% Symmetrical Center Fix -->
-      <div class="absolute bottom-0 inset-x-0 z-20 pointer-events-none flex justify-center overflow-hidden hero-animate" style="animation-delay: 200ms;">
-        <img alt="Portrait of Rahmat.Tech" class="w-[120vw] sm:w-[90vw] md:w-[80vw] lg:w-[70vw] max-w-[1000px] h-auto max-h-[75dvh] md:max-h-[92dvh] object-contain object-bottom select-none" src="assets/image/rahmat.png"/>
+      <!-- Cut-out Portrait: 100% Mentok Bawah (Auto Margin-Top) -->
+      <!-- PERBAIKAN: marginTop: auto mengunci foto ke garis paling bawah parent tanpa menyisakan ruang putih -->
+      <div class="relative z-20 w-full max-w-[900px] mx-auto pointer-events-none mt-auto flex justify-center px-4 md:px-0 hero-animate" style="animation-delay: 200ms;">
+        <img alt="Portrait of Rahmat.Tech" class="w-full h-auto max-h-[65dvh] md:max-h-[85dvh] object-contain object-bottom select-none" src="assets/image/rahmat.png"/>
       </div>
       
       <!-- Hero Bottom Row Indicator -->
-      <div class="absolute bottom-6 md:bottom-8 left-6 md:left-12 z-30 pointer-events-auto hero-animate" style="animation-delay: 700ms;">
-        <span class="font-['Inter'] text-[11px] md:text-[13px] text-primary tracking-tight font-medium">
+      <div class="absolute bottom-6 left-6 md:left-12 z-30 pointer-events-auto hero-animate" style="animation-delay: 700ms;">
+        <span class="font-['Inter'] text-[11px] md:text-[13px] text-primary tracking-tight font-medium bg-white/50 md:bg-transparent backdrop-blur-sm px-2 py-1 md:p-0 rounded-md">
           © Rahmat.Tech 2026
         </span>
       </div>
-      <div class="absolute bottom-6 md:bottom-8 right-6 md:right-12 z-30 pointer-events-auto hero-animate" style="animation-delay: 700ms;">
-        <a class="font-['Inter'] text-[11px] md:text-[13px] text-primary hover:opacity-70 transition-opacity font-medium" href="#tentang-saya">
+      <div class="absolute bottom-6 right-6 md:right-12 z-30 pointer-events-auto hero-animate" style="animation-delay: 700ms;">
+        <a class="font-['Inter'] text-[11px] md:text-[13px] text-primary hover:opacity-70 transition-opacity font-medium bg-white/50 md:bg-transparent backdrop-blur-sm px-2 py-1 md:p-0 rounded-md" href="#tentang-saya">
           (Scroll down)
         </a>
       </div>
@@ -235,7 +258,6 @@
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-16">
-          <!-- Card 1: Frontend Engineering -->
           <div class="bg-[#F6F6F6] rounded-[20px] p-6 border-0 shadow-none min-h-[340px] flex flex-col justify-between reveal-up">
             <div class="w-14 h-14 rounded-full bg-[#FFF106] flex items-center justify-center shrink-0">
               <svg aria-hidden="true" class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
@@ -261,7 +283,6 @@
               </div>
             </div>
           </div>
-          <!-- Card 2: Database -->
           <div class="bg-[#F6F6F6] rounded-[20px] p-6 border-0 shadow-none min-h-[340px] flex flex-col justify-between reveal-up">
             <div class="w-14 h-14 rounded-full bg-[#FFF106] flex items-center justify-center shrink-0">
               <svg aria-hidden="true" class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
@@ -285,7 +306,6 @@
               </div>
             </div>
           </div>
-          <!-- Card 3: Python & Desktop/AI -->
           <div class="bg-[#F6F6F6] rounded-[20px] p-6 border-0 shadow-none min-h-[340px] flex flex-col justify-between reveal-up">
             <div class="w-14 h-14 rounded-full bg-[#FFF106] flex items-center justify-center shrink-0">
               <svg aria-hidden="true" class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
@@ -312,7 +332,6 @@
               </div>
             </div>
           </div>
-          <!-- Card 4: Networking -->
           <div class="bg-[#F6F6F6] rounded-[20px] p-6 border-0 shadow-none min-h-[340px] flex flex-col justify-between reveal-up">
             <div class="w-14 h-14 rounded-full bg-[#FFF106] flex items-center justify-center shrink-0">
               <svg aria-hidden="true" class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24">
@@ -430,7 +449,7 @@
             </div>
             <p class="font-['Inter'] text-[12px] text-[#636363] uppercase tracking-wider mb-1">DIBERIKAN KEPADA</p>
             <h4 class="font-['Inter_Tight'] font-bold text-[24px] text-black mb-1">Rahmat.Tech</h4>
-            <p class="font-['Inter'] text-[13px] text-[#636363]" id="modal-cert-spec">Atas keberhasilan penyelesaian sertifikasi profesional dalam arsitektur komputasi awan dan infrastruktur.</p>
+            <p class="font-['Inter'] text-[13px] text-[#636363]" id="modal-cert-spec">Atas keberhasilan penyelesaian sertifikasi keahlian.</p>
           </div>
           <div class="flex items-center justify-between pt-4 border-t border-[#E5E5E5] text-[12px] font-['Inter'] text-[#636363]">
             <span>ID Kredensial: <span class="text-black font-medium" id="modal-cert-id">UKK-2026</span></span>
@@ -445,9 +464,8 @@
     </div>
   </main>
   
-  <!-- 4. FOOTER (Shared Component Anchor) -->
+  <!-- 4. FOOTER -->
   <div class="w-full bg-[#0F0F0F] text-white rounded-t-[32px] pt-24 md:pt-28 pb-12 px-6 md:px-12 mt-24 select-none">
-    <!-- 1. FEATURED PROJECT SECTION (#projects) -->
     <section class="max-w-[1280px] mx-auto" id="projects">
       <h2 class="font-['Inter_Tight'] font-semibold text-white tracking-[-0.04em] text-[56px] sm:text-[76px] md:text-[96px] lg:text-[110px] leading-[0.95] text-left uppercase reveal-up">
         Featured Project
@@ -488,7 +506,7 @@
           </div>
           <div class="flex items-start justify-between gap-3 pt-1">
             <div class="flex flex-col gap-1">
-              <h3 class="font-['Inter_Tight'] font-semibold text-[18px] text-white tracking-tight group-hover:text-[#FFF106] transition-colors">
+              <h3 class="font-['Inter_Tight'] font-semibold text-[18px] text-white tracking-tight transition-colors">
                 NusaBlox
               </h3>
               <p class="font-['Inter'] text-[13px] text-[#8E8E8E]">
@@ -531,7 +549,7 @@
           </div>
           <div class="flex items-start justify-between gap-3 pt-1">
             <div class="flex flex-col gap-1">
-              <h3 class="font-['Inter_Tight'] font-semibold text-[18px] text-white tracking-tight group-hover:text-[#FFF106] transition-colors">
+              <h3 class="font-['Inter_Tight'] font-semibold text-[18px] text-white tracking-tight transition-colors">
                 MikroTik Hotspot Portal
               </h3>
               <p class="font-['Inter'] text-[13px] text-[#8E8E8E]">
@@ -566,7 +584,7 @@
           </div>
           <div class="flex items-start justify-between gap-3 pt-1">
             <div class="flex flex-col gap-1">
-              <h3 class="font-['Inter_Tight'] font-semibold text-[18px] text-white tracking-tight group-hover:text-[#FFF106] transition-colors">
+              <h3 class="font-['Inter_Tight'] font-semibold text-[18px] text-white tracking-tight transition-colors">
                 Portfolio TI Reg D BJM
               </h3>
               <p class="font-['Inter'] text-[13px] text-[#8E8E8E]">
@@ -675,7 +693,5 @@
       </div>
     </footer>
   </div>
-
-  <script src="js/main.js"></script>
 </body>
 </html>

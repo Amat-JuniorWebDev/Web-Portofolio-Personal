@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        // Delay hapus dipanjangkan agar sejalan dengan animasi lambat
+        // Jeda waktu penghapusan transisi diatur ke 1500ms agar animasi bisa diselesaikan penuh secara lambat & smooth
         setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 1500);
         observer.unobserve(entry.target);
       }
