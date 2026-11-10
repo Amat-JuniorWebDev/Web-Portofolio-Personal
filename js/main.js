@@ -180,7 +180,8 @@ window.addEventListener('keydown', (e) => {
 });
 
 // SCROLL REVEAL ANIMATIONS (SMOOTH ELEGANT)
-document.addEventListener('DOMContentLoaded', () => {
+// PERBAIKAN: Menjalankan eksekusi animasi secara langsung tanpa menunggu DOMContentLoaded (Mencegah Blank-page)
+const initAnimations = () => {
   const animatedElements = document.querySelectorAll('.reveal-up');
 
   animatedElements.forEach((el, index) => {
@@ -194,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        // Jeda dihapus lebih lama agar sinkron dengan durasi CSS animasi 1.8 detik
+        // Jeda waktu penghapusan transisi diatur ke 2000ms agar sinkron dengan CSS animasi yang mewah (1.8s)
         setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 2000);
         observer.unobserve(entry.target);
       }
@@ -202,4 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { root: null, threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
 
   animatedElements.forEach(el => revealObserver.observe(el));
-});
+};
+
+// Panggil fungsi secara langsung karena skrip dipasang di bawah <body>
+initAnimations();
