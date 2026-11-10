@@ -18,74 +18,59 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Strict Swiss Editorial Grain & Glow - Warna Diubah menjadi Silver/Chrome Minimalis */
+/* Base Editorial Glow */
 .hero-glow-layer {
   background: radial-gradient(circle at 15% 15%, #E5E5E5 0%, rgba(229, 229, 229, 0.4) 30%, transparent 65%),
               radial-gradient(circle at 85% 20%, #D4D4D4 0%, rgba(212, 212, 212, 0.35) 30%, transparent 65%),
               radial-gradient(circle at 50% 50%, #FFFFFF 0%, #FFFFFF 100%);
 }
 
-/* Hide scrollbar for standard editorial sliders */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* PERBAIKAN PRIORITAS 1: CSS Noise Ringan pengganti SVG Filter (Bebas Lag) */
+.hero-noise-layer {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
 }
 
+/* Hide scrollbar for standard editorial sliders */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* ========================================================
-   ANIMATION UTILITIES (Triggered by JS Intersection Observer)
+   PERBAIKAN PRIORITAS 1: ANIMATION UTILITIES (Hardware Accelerated)
    ======================================================== */
 .reveal-up {
   opacity: 0;
-  transform: translateY(40px);
+  /* Menggunakan translate3d memaksa browser menggunakan GPU (Hardware Acceleration) */
+  transform: translate3d(0, 40px, 0);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform; /* Mengingatkan browser untuk prepare frame */
 }
 
 .is-revealed {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  transform: translate3d(0, 0, 0) !important;
 }
 
 /* ========================================================
-   RESPONSIVE DESIGN: TABLET & MOBILE FIXES
+   PERBAIKAN PRIORITAS 2: RESPONSIVE DESIGN & MOBILE FIXES
    ======================================================== */
 
-/* Tablet (Portrait & Landscape) */
 @media (max-width: 1024px) {
-  .hero-glow-layer {
-    background: radial-gradient(circle at 20% 20%, #E5E5E5 0%, rgba(229, 229, 229, 0.3) 45%, transparent 75%),
-                radial-gradient(circle at 80% 30%, #D4D4D4 0%, rgba(212, 212, 212, 0.25) 45%, transparent 75%),
-                radial-gradient(circle at 50% 50%, #FFFFFF 0%, #FFFFFF 100%);
-  }
+  /* Matikan noise di HP dan Tablet agar performa scroll mulus 60fps */
+  .hero-noise-layer { display: none !important; }
 }
 
-/* Mobile Devices */
 @media (max-width: 767px) {
-  /* Mencegah horizontal scroll di HP */
+  /* Cegah horizontal scroll yang membuat layout tumpah */
   body, html {
     overflow-x: hidden !important;
     width: 100%;
+    position: relative;
   }
 
-  /* Mengamankan padding section di layar kecil */
-  section {
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
-  }
-  
-  /* Menyesuaikan gambar portrait di Hero agar mentok sempurna di HP */
-  #about img {
-    width: 125vw !important;
-    max-width: none !important;
-    max-height: 70vh !important;
-  }
-
-  /* Mencegah Auto-Zoom di iOS Safari saat menekan input form */
-  input[type="text"], 
-  input[type="email"], 
-  textarea {
+  /* Cegah layout form men-zoom layar di Safari iOS */
+  input[type="text"], input[type="email"], textarea {
     font-size: 16px !important;
   }
 }

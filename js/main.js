@@ -180,11 +180,12 @@ window.addEventListener('keydown', (e) => {
 });
 
 
+// (Pertahankan logika Mobile Menu & Accordion milikmu yang sebelumnya, lalu tambahkan bagian bawah ini)
+
 // ========================================================
-// SCROLL REVEAL ANIMATIONS
+// PERBAIKAN PRIORITAS 1: SCROLL REVEAL ANIMATIONS (OPTIMAL)
 // ========================================================
 document.addEventListener('DOMContentLoaded', () => {
-  // Pilih semua elemen target yang akan dianimasikan (kecuali Hero section agar masuknya instan)
   const animatedElements = document.querySelectorAll(`
     #tentang-saya h2, #tentang-saya p, #tentang-saya img, #tentang-saya a,
     #history h2, #history p, .history-item,
@@ -194,39 +195,24 @@ document.addEventListener('DOMContentLoaded', () => {
     #contact h2, #contact p, #contact form, #contact .flex-col
   `);
 
-  // Tambahkan base class animasi ke setiap elemen
   animatedElements.forEach((el, index) => {
     el.classList.add('reveal-up');
-    
-    // Memberikan jeda waktu (stagger) khusus untuk elemen grid berjejer
     if (el.closest('.grid') && !el.closest('form')) {
-      const delay = (index % 4) * 100; // Jeda 0, 100, 200, 300 ms
+      const delay = (index % 4) * 100; 
       el.style.transitionDelay = `${delay}ms`;
     }
   });
 
-  // Setup Intersection Observer
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Tambahkan class untuk memicu animasi naik
         entry.target.classList.add('is-revealed');
-        
-        // Hapus transisi delay setelah animasi selesai agar efek hover tidak lag
-        setTimeout(() => {
-          entry.target.style.transitionDelay = '0ms';
-        }, 1000);
-        
-        // Unobserve agar animasi tidak berulang-ulang
+        // Hapus delay setelah muncul agar hover tidak ngelag
+        setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 1000);
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    root: null,
-    threshold: 0.1, // Memicu animasi ketika 10% elemen sudah masuk layar
-    rootMargin: "0px 0px -50px 0px"
-  });
+  }, { root: null, threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
 
-  // Pantau semua elemen
   animatedElements.forEach(el => revealObserver.observe(el));
 });
