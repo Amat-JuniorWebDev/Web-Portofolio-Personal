@@ -10,19 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   
-  <!-- SCRIPT AUTO-REALTIME CSS (Aman dari pemblokiran Browser) -->
+  <!-- SCRIPT AUTO-REALTIME (Pengganti PHP) -->
   <script>
     var ts = new Date().getTime();
     document.write('<link href="css/style.css?v=' + ts + '" rel="stylesheet"/>');
     document.write('<script src="js/tailwind-config.js?v=' + ts + '"><\/script>');
   </script>
   
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
 <body class="bg-[#FFFFFF] text-primary antialiased selection:bg-[#FFF106] selection:text-primary min-h-screen overflow-x-hidden">
   
-  <!-- SVG Filter Definition for Noise Texture (Orisinal Stitch) -->
+  <!-- SVG Filter Definition for Noise Texture -->
   <svg aria-hidden="true" class="hidden" height="0" width="0">
     <filter id="editorial-noise">
       <feturbulence basefrequency="0.8" numoctaves="3" stitchtiles="stitch" type="fractalNoise"></feturbulence>
@@ -30,93 +29,81 @@
     </filter>
   </svg>
 
-  <!-- 1. FIXED TOP NAVIGATION PILL -->
+  <!-- 1. FIXED TOP NAVIGATION PILL (DIKEMBALIKAN KE PIL HITAM UTUH SESUAI ASLI) -->
   <header class="fixed top-6 left-1/2 -translate-x-1/2 rounded-full z-50">
-    <nav aria-label="Navigasi Utama" class="bg-primary flex items-center gap-1 sm:gap-2 px-2.5 py-1.5 rounded-full border border-outline-variant/20 h-[47px] select-none shadow-none">
-      <a class="bg-surface-container-lowest text-primary rounded-full px-3.5 py-1.5 font-button text-button inline-flex items-center gap-1.5 transition-colors duration-150" href="#about">
+    <nav aria-label="Navigasi Utama" class="bg-[#000000] flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-white/20 h-[47px] select-none shadow-xl">
+      <a class="bg-white text-black rounded-full px-3.5 py-1.5 font-['Inter_Tight'] text-[14px] font-medium inline-flex items-center gap-1.5 transition-colors duration-150" href="#about">
         <span class="material-symbols-outlined text-[16px] leading-none" data-icon="home">home</span>
         <span class="hidden sm:inline-block">Home</span>
       </a>
-      <div class="hidden md:flex items-center gap-1">
-        <a class="text-text-muted-dark hover:text-on-primary px-3 py-1.5 font-button text-button transition-colors duration-150 rounded-full hover:bg-hover-dark" href="#history">Roadmap</a>
-        <a class="text-text-muted-dark hover:text-on-primary px-3 py-1.5 font-button text-button transition-colors duration-150 rounded-full hover:bg-hover-dark" href="#skill">Skill</a>
-        <a class="text-text-muted-dark hover:text-on-primary px-3 py-1.5 font-button text-button transition-colors duration-150 rounded-full hover:bg-hover-dark" href="#certificate">Sertifikat</a>
-        <a class="text-text-muted-dark hover:text-on-primary px-3 py-1.5 font-button text-button transition-colors duration-150 rounded-full hover:bg-hover-dark" href="#projects">Projects</a>
-        <a class="text-text-muted-dark hover:text-on-primary px-3 py-1.5 font-button text-button transition-colors duration-150 rounded-full hover:bg-hover-dark" href="#contact">Contact</a>
+      <div class="hidden md:flex items-center gap-0.5">
+        <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3.5 py-1.5 font-['Inter_Tight'] text-[14px] font-medium transition-colors duration-150 rounded-full" href="#history">Roadmap</a>
+        <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3.5 py-1.5 font-['Inter_Tight'] text-[14px] font-medium transition-colors duration-150 rounded-full" href="#skill">Skill</a>
+        <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3.5 py-1.5 font-['Inter_Tight'] text-[14px] font-medium transition-colors duration-150 rounded-full" href="#certificate">Sertifikat</a>
+        <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3.5 py-1.5 font-['Inter_Tight'] text-[14px] font-medium transition-colors duration-150 rounded-full" href="#projects">Projects</a>
+        <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3.5 py-1.5 font-['Inter_Tight'] text-[14px] font-medium transition-colors duration-150 rounded-full" href="#contact">Contact</a>
       </div>
-      <button aria-label="Buka Menu" class="md:hidden flex items-center justify-center text-text-muted-dark hover:text-on-primary px-2.5 py-1.5 rounded-full hover:bg-hover-dark transition-colors duration-150" id="mobile-menu-trigger" type="button">
+      <button aria-label="Buka Menu" class="md:hidden flex items-center justify-center text-[#A0A0A0] hover:text-white hover:bg-white/10 px-2.5 py-1.5 rounded-full transition-colors duration-150 ml-1" id="mobile-menu-trigger" type="button">
         <span class="material-symbols-outlined text-[18px]" data-icon="menu">menu</span>
       </button>
     </nav>
   </header>
   
   <!-- Mobile Dropdown Tray -->
-  <div class="hidden fixed top-20 left-1/2 -translate-x-1/2 w-[90vw] max-w-xs bg-primary rounded-2xl p-4 border border-outline-variant/20 z-50 flex flex-col gap-2 shadow-none" id="mobile-menu">
-    <a class="text-text-muted-dark hover:text-on-primary px-3 py-2 font-button text-button rounded-lg transition-colors" href="#history">Roadmap</a>
-    <a class="text-text-muted-dark hover:text-on-primary px-3 py-2 font-button text-button rounded-lg transition-colors" href="#skill">Skill</a>
-    <a class="text-text-muted-dark hover:text-on-primary px-3 py-2 font-button text-button rounded-lg transition-colors" href="#certificate">Sertifikat</a>
-    <a class="text-text-muted-dark hover:text-on-primary px-3 py-2 font-button text-button rounded-lg transition-colors" href="#projects">Projects</a>
-    <a class="text-text-muted-dark hover:text-on-primary px-3 py-2 font-button text-button rounded-lg transition-colors" href="#contact">Contact</a>
+  <div class="hidden fixed top-20 left-1/2 -translate-x-1/2 w-[90vw] max-w-xs bg-[#000000] rounded-2xl p-4 border border-white/20 z-50 flex flex-col gap-2 shadow-2xl" id="mobile-menu">
+    <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3 py-2 font-['Inter_Tight'] text-[14px] font-medium rounded-lg transition-colors" href="#history">Roadmap</a>
+    <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3 py-2 font-['Inter_Tight'] text-[14px] font-medium rounded-lg transition-colors" href="#skill">Skill</a>
+    <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3 py-2 font-['Inter_Tight'] text-[14px] font-medium rounded-lg transition-colors" href="#certificate">Sertifikat</a>
+    <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3 py-2 font-['Inter_Tight'] text-[14px] font-medium rounded-lg transition-colors" href="#projects">Projects</a>
+    <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3 py-2 font-['Inter_Tight'] text-[14px] font-medium rounded-lg transition-colors" href="#contact">Contact</a>
   </div>
   
   <main>
-    <!-- 2. HERO SECTION (#about) -->
-    <section class="relative w-full min-h-[100dvh] md:min-h-[750px] flex flex-col overflow-hidden hero-glow-layer pt-24" id="about">
+    <!-- 2. HERO SECTION (#about) - UKURAN DIPROPORSIKAN AGAR PAS & ELEGAN -->
+    <section class="relative w-full min-h-[100dvh] md:min-h-[720px] flex flex-col justify-between overflow-hidden hero-glow-layer pt-24 pb-8 px-6 md:px-12" id="about">
+      <!-- Grain Overlay -->
+      <div class="absolute inset-0 pointer-events-none z-[1]" style="filter: url(#editorial-noise); opacity: 0.85;"></div>
       
-      <!-- Layer Noise Asli (Dioptimalkan di CSS agar tidak lag) -->
-      <div class="absolute inset-0 pointer-events-none z-[1] hero-noise-wrapper" style="filter: url(#editorial-noise); opacity: 0.85;"></div>
-      
-      <!-- Giant Wordmark -->
-      <!-- PERBAIKAN UKURAN: Teks diperkecil agar proporsional meniru referensi -->
-      <div class="absolute top-[20%] md:top-[38%] left-1/2 -translate-x-1/2 md:-translate-y-1/2 z-10 w-full flex justify-center pointer-events-none select-none">
-        <h1 class="font-['Inter_Tight'] text-[18vw] sm:text-[16vw] md:text-[14vw] lg:text-[12vw] leading-[0.8] tracking-[-0.05em] text-primary font-black uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
-          RAHMAT©
+      <!-- Giant Wordmark Behind Cutout Portrait (Ukuran disesuaikan agar proporsional) -->
+      <div class="absolute top-[28%] md:top-[30%] left-0 right-0 z-10 select-none pointer-events-none flex justify-center w-full">
+        <h1 class="font-['Inter_Tight'] text-[15vw] md:text-[14vw] leading-none tracking-tighter text-primary font-bold w-full text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
+          RAHMAT.TECH©
         </h1>
       </div>
       
-      <!-- Teks Desktop Kiri & Kanan (Sembunyi di HP) -->
-      <!-- PERBAIKAN POSISI: Disesuaikan posisinya sejajar dengan postur gambar yang lebih kecil -->
-      <div class="hidden md:block absolute top-[55%] lg:top-[60%] -translate-y-1/2 left-6 lg:left-12 z-30 max-w-[260px] pointer-events-auto hero-animate" style="animation-delay: 400ms;">
-        <p class="font-['Inter'] text-[13px] text-primary leading-[1.6] font-medium bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-xl">
-          Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
-        </p>
-      </div>
-      <div class="hidden md:block absolute top-[55%] lg:top-[60%] -translate-y-1/2 right-6 lg:right-12 z-30 max-w-[260px] text-right pointer-events-auto hero-animate" style="animation-delay: 600ms;">
-        <p class="font-['Inter'] text-[13px] text-primary leading-[1.6] font-medium bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-xl">
-          Menghadirkan pengalaman digital yang fungsional, bersih, dan berbobot tanpa ornamen berlebih.
-        </p>
-      </div>
-
-      <!-- Teks Mobile (Tampil berurutan di bawah dagu/dada foto di HP) -->
-      <div class="relative z-30 flex flex-col gap-4 px-6 mt-[30vh] sm:mt-[35vh] md:hidden pointer-events-auto hero-animate" style="animation-delay: 400ms;">
-        <p class="font-['Inter'] text-[13px] text-primary leading-[1.6] font-medium bg-white/40 backdrop-blur-md p-4 rounded-xl text-center border border-white/20 shadow-sm">
-          Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
-        </p>
-        <p class="font-['Inter'] text-[13px] text-primary leading-[1.6] font-medium bg-white/40 backdrop-blur-md p-4 rounded-xl text-center border border-white/20 shadow-sm">
-          Menghadirkan pengalaman digital yang fungsional, bersih, dan berbobot tanpa ornamen berlebih.
-        </p>
+      <!-- Cut-out Portrait: Proporsional, Tidak Terlalu Besar, Posisi Center -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[80vw] sm:w-[55vw] md:w-[38vw] max-w-[460px] pointer-events-none flex items-end justify-center hero-animate" style="animation-delay: 200ms;">
+        <img alt="Portrait of Rahmat.Tech" class="w-full h-auto max-h-[52vh] md:max-h-[58vh] object-contain object-bottom select-none" src="assets/image/rahmat.png"/>
       </div>
       
-      <!-- Cut-out Portrait: Simetris Mutlak 100% Center & Mentok Bawah -->
-      <!-- PERBAIKAN UKURAN: max-w dan max-h diturunkan agar ukurannya lebih wajar meniru gaya referensi -->
-      <div class="absolute bottom-0 inset-x-0 mx-auto z-20 w-full max-w-[550px] lg:max-w-[650px] flex justify-center pointer-events-none overflow-hidden hero-animate" style="animation-delay: 200ms;">
-        <img alt="Portrait of Rahmat.Tech" class="w-[85%] sm:w-[75%] md:w-full h-auto max-h-[55dvh] md:max-h-[70dvh] object-contain object-bottom select-none drop-shadow-2xl" src="assets/image/rahmat.png"/>
+      <!-- Side Editorial Texts (Layer z-30 Above Wordmark) -->
+      <div class="relative z-30 w-full max-w-[1440px] mx-auto flex-1 flex flex-col md:flex-row md:items-center justify-between gap-6 pointer-events-auto mt-8 md:mt-0 hero-animate" style="animation-delay: 400ms;">
+        <!-- Left Text Block -->
+        <div class="max-w-[340px] self-start md:self-center">
+          <p class="font-['Inter'] text-[14px] text-primary leading-relaxed font-normal bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-3.5 md:p-0 rounded-xl">
+            Halo, saya Rahmat.Tech — seorang Web Developer berbasis di Banjarmasin. Fokus pada desain presisi dan sistem modular.
+          </p>
+        </div>
+        <!-- Right Text Block -->
+        <div class="max-w-[320px] self-end md:self-center text-right">
+          <p class="font-['Inter'] text-[14px] text-primary leading-relaxed font-normal bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-3.5 md:p-0 rounded-xl">
+            Menghadirkan pengalaman digital yang fungsional, bersih, dan berbobot tanpa ornamen berlebih.
+          </p>
+        </div>
       </div>
       
       <!-- Hero Bottom Row Indicator -->
-      <div class="absolute bottom-6 md:bottom-8 left-6 md:left-12 z-30 pointer-events-auto hero-animate" style="animation-delay: 800ms;">
-        <span class="font-['Inter'] text-[11px] md:text-[12px] text-primary tracking-tight font-medium bg-white/40 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none px-2 py-1 md:p-0 rounded-md">
+      <div class="relative z-30 w-full max-w-[1440px] mx-auto flex items-center justify-between pt-6 border-t border-hairline/40 hero-animate" style="animation-delay: 600ms;">
+        <span class="font-['Inter'] text-[12px] text-primary tracking-tight">
           © Rahmat.Tech 2026
         </span>
-      </div>
-      <div class="absolute bottom-6 md:bottom-8 right-6 md:right-12 z-30 pointer-events-auto hero-animate" style="animation-delay: 800ms;">
-        <a class="font-['Inter'] text-[11px] md:text-[12px] text-primary hover:opacity-70 transition-opacity font-medium bg-white/40 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none px-2 py-1 md:p-0 rounded-md" href="#tentang-saya">
+        <a class="font-['Inter'] text-[12px] text-primary hover:opacity-70 transition-opacity" href="#tentang-saya">
           (Scroll down)
         </a>
       </div>
     </section>
     
-    <!-- 3. ABOUT ME BLOCK -->
+    <!-- 3. ABOUT ME BLOCK (TIDAK DIUBAH SAMA SEKALI) -->
     <section class="w-full bg-[#FFFFFF] border-t border-hairline py-24 px-6 md:px-12" id="tentang-saya">
       <div class="max-w-[1280px] mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -387,6 +374,7 @@
         </div>
         <div class="relative -mx-6 md:-mx-12 px-6 md:px-12 reveal-up">
           <div class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pb-6 pt-2" id="cert-slider">
+            <!-- Card 1 -->
             <div class="cert-card w-[86vw] sm:w-[360px] md:w-[380px] shrink-0 snap-start bg-[#FFFFFF] border border-[#EEEEEE] rounded-[20px] p-4 flex flex-col justify-between transition-colors">
               <div class="cert-image-trigger w-full aspect-[4/3] rounded-xl bg-[#F5F5F5] border border-[#EEEEEE] p-6 flex flex-col justify-between cursor-pointer select-none group" data-cert-id="1" data-date="2026" data-id="UKK-2026" data-issuer="SMK Muhammadiyah 2 Banjarmasin" data-title="Ujian Kompetensi Keahlian TKJ">
                 <div class="flex items-center justify-between">
@@ -466,7 +454,7 @@
     </div>
   </main>
   
-  <!-- 4. FOOTER (Shared Component Anchor) -->
+  <!-- 4. FOOTER -->
   <div class="w-full bg-[#0F0F0F] text-white rounded-t-[32px] pt-24 md:pt-28 pb-12 px-6 md:px-12 mt-24 select-none">
     <section class="max-w-[1280px] mx-auto" id="projects">
       <h2 class="font-['Inter_Tight'] font-semibold text-white tracking-[-0.04em] text-[56px] sm:text-[76px] md:text-[96px] lg:text-[110px] leading-[0.95] text-left uppercase reveal-up">
@@ -695,7 +683,7 @@
       </div>
     </footer>
   </div>
-
+  
   <!-- SCRIPT AUTO-REALTIME MAIN.JS -->
   <script>
     const jsScript = document.createElement('script');
