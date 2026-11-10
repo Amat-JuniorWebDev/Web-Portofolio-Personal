@@ -60,31 +60,28 @@
   
   <main>
     <!-- 2. HERO SECTION (#about) -->
-    <!-- PERBAIKAN: Mengatur padding vertikal agar jaraknya merata -->
     <section class="relative w-full h-screen min-h-[820px] overflow-hidden flex flex-col pt-32 pb-8 px-6 md:px-12 hero-glow-layer" id="about">
       
       <!-- Grain Overlay -->
       <div class="absolute inset-0 pointer-events-none z-[1]" style="filter: url(#editorial-noise); opacity: 0.85;"></div>
       
       <!-- Giant Wordmark Behind Cutout Portrait -->
-      <!-- PERBAIKAN: Font Size diturunkan sedikit (menjadi text-[16vw] di layar besar) agar RAHMAT.TECH© tidak terpotong -->
       <div class="absolute top-[20%] md:top-[25%] left-0 right-0 z-10 select-none pointer-events-none flex justify-center w-full">
         <h1 class="font-['Inter_Tight'] text-[20vw] md:text-[16vw] leading-none tracking-tighter text-primary font-bold w-full text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
           RAHMAT©
         </h1>
       </div>
       
-      <!-- Cut-out Portrait: Positioned Centered at Bottom Flush -->
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[92vw] sm:w-[68vw] md:w-[46vw] max-w-[580px] pointer-events-none flex items-end justify-center hero-animate" style="animation-delay: 200ms;">
-        <img alt="Portrait of Rahmat.Tech" class="w-full h-auto max-h-[72vh] md:max-h-[78vh] object-contain object-bottom select-none drop-shadow-2xl" src="assets/image/rahmat.png"/>
+      <!-- Cut-out Portrait: Positioned Mutlak 100% Center at Bottom Flush -->
+      <!-- PERBAIKAN: Kontainer dirubah jadi mutlak terpusat ke poros tengah dengan left-1/2 dan -translate-x-1/2 -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-full max-w-[580px] pointer-events-none flex items-end justify-center hero-animate" style="animation-delay: 200ms;">
+        <!-- PERBAIKAN: class w-full h-auto tetap, dan mx-auto ditambah agar center lock sempurna di dalam wadah (container) -->
+        <img alt="Portrait of Rahmat.Tech" class="w-full mx-auto h-auto max-h-[72vh] md:max-h-[78vh] object-contain object-bottom select-none drop-shadow-2xl" src="assets/image/rahmat.png"/>
       </div>
       
       <!-- Side Editorial Texts (Layer z-30 Above Wordmark) -->
-      <!-- PERBAIKAN: margin-top diatur agar lebih sejajar dengan foto secara vertikal di desktop -->
       <div class="relative z-30 w-full max-w-[1440px] mx-auto flex-1 flex flex-col md:flex-row justify-between items-center md:items-end md:pb-24 pointer-events-auto mt-[40vh] md:mt-0 hero-animate" style="animation-delay: 400ms;">
-        
         <!-- Left Text Block -->
-        <!-- Di mobile tampil di bawah, di desktop sejajar di kiri -->
         <div class="w-full max-w-[360px] self-center md:self-auto mb-4 md:mb-0">
           <p class="font-['Inter'] text-[14px] md:text-[16px] text-primary leading-relaxed font-normal bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-xl text-center md:text-left shadow-sm md:shadow-none border border-white/20 md:border-transparent">
             Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
@@ -92,7 +89,6 @@
         </div>
         
         <!-- Right Text Block -->
-        <!-- Di mobile tampil di bawah text kiri, di desktop sejajar di kanan -->
         <div class="w-full max-w-[340px] self-center md:self-auto text-center md:text-right">
           <p class="font-['Inter'] text-[14px] md:text-[16px] text-primary leading-relaxed font-normal bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-xl shadow-sm md:shadow-none border border-white/20 md:border-transparent">
             Menghadirkan pengalaman digital yang fungsional, bersih, dan berbobot tanpa ornamen berlebih.
@@ -648,21 +644,21 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 pb-16 reveal-up">
         <div class="flex flex-col gap-3 font-['Inter']">
           <span class="text-[12px] font-semibold uppercase tracking-wider text-white mb-1 font-['Inter_Tight']">Navigasi</span>
-          <a class="text-[14px] text-[#A0A0A0] hover:text-white transition-colors" href="#about">Home</a>
-          <a class="text-[14px] text-[#A0A0A0] hover:text-white transition-colors" href="#history">Roadmap</a>
-          <a class="text-[14px] text-[#A0A0A0] hover:text-white transition-colors" href="#skill">Skill</a>
-          <a class="text-[14px] text-[#A0A0A0] hover:text-white transition-colors" href="#certificate">Sertifikat</a>
+          <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#about">Home</a>
+          <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#history">Roadmap</a>
+          <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#skill">Skill</a>
+          <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#certificate">Sertifikat</a>
         </div>
         <div class="flex flex-col gap-3 font-['Inter']">
           <span class="text-[12px] font-semibold uppercase tracking-wider text-white mb-1 font-['Inter_Tight']">Proyek Terpilih</span>
-          <a class="text-[14px] text-[#A0A0A0] hover:text-white transition-colors" href="#projects">NusaBlox</a>
-          <a class="text-[14px] text-[#A0A0A0] hover:text-white transition-colors" href="#projects">MikroTik Hotspot Portal</a>
-          <a class="text-[14px] text-[#A0A0A0] hover:text-white transition-colors" href="#projects">Portfolio TI Reg D BJM</a>
-          <a class="text-[14px] text-[#A0A0A0] hover:text-white transition-colors" href="https://github.com/Amat-JuniorWebDev" rel="noopener noreferrer" target="_blank">Lihat Semua Repositori ↗</a>
+          <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#projects">NusaBlox</a>
+          <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#projects">MikroTik Hotspot Portal</a>
+          <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="#projects">Portfolio TI Reg D BJM</a>
+          <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="https://github.com/Amat-JuniorWebDev" rel="noopener noreferrer" target="_blank">Lihat Semua Repositori ↗</a>
         </div>
         <div class="flex flex-col gap-3 font-['Inter']">
           <span class="text-[12px] font-semibold uppercase tracking-wider text-white mb-1 font-['Inter_Tight']">Kontak Langsung</span>
-          <a class="text-[14px] text-[#A0A0A0] hover:text-white transition-colors" href="mailto:kontak@portofolio.id">kontak@portofolio.id</a>
+          <a class="text-[14px] text-[#A0A0A0] hover:text-[#FFF106] transition-colors" href="mailto:kontak@portofolio.id">kontak@portofolio.id</a>
           <span class="text-[14px] text-[#8E8E8E]">Banjarmasin, Indonesia</span>
         </div>
         <div class="flex flex-col gap-3 font-['Inter']">
@@ -680,6 +676,7 @@
           </div>
         </div>
       </div>
+      <!-- Bottom Row Editorial Line -->
       <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[12px] font-['Inter'] text-[#8E8E8E]">
         <p class="max-w-md">Menghadirkan produk digital fungsional, presisi, dan berbobot tanpa ornamen berlebih.</p>
         <p class="text-right uppercase tracking-wider">© 2026 Rahmat.Tech. ALL RIGHTS RESERVED.</p>
@@ -687,7 +684,7 @@
     </footer>
   </div>
   
-  <!-- SCRIPT AUTO-REALTIME MAIN.JS (Aman dari pemblokiran DOM) -->
+  <!-- SCRIPT AUTO-REALTIME MAIN.JS -->
   <script>
     const jsScript = document.createElement('script');
     jsScript.src = 'js/main.js?v=' + new Date().getTime();
