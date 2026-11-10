@@ -41,8 +41,6 @@
 /* ========================================================
    ANIMATION UTILITIES (Elegan, Halus & Smooth)
    ======================================================== */
-
-/* Durasi 1.8 detik dengan ease-out-expo (Sangat Smooth & Mewah) */
 @keyframes fadeUpHero {
   from { opacity: 0; transform: translate3d(0, 30px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
@@ -66,15 +64,19 @@
   transform: translate3d(0, 0, 0) !important;
 }
 
+.hero-noise-wrapper {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
 /* ========================================================
    RESPONSIVE DESIGN & MOBILE FIXES
    ======================================================== */
 @media (max-width: 1024px) {
-  .hero-noise-layer { display: none !important; }
+  .hero-noise-layer, .hero-noise-wrapper { display: none !important; }
 }
 
 @media (max-width: 767px) {
-  /* Cegah horizontal scroll yang membuat layout tumpah ke samping */
   body, html {
     overflow-x: hidden !important;
     width: 100%;
@@ -86,7 +88,6 @@
     padding-right: 1.25rem !important;
   }
   
-  /* Cegah Zoom otomatis saat mengisi form di HP iOS/Safari */
   input[type="text"], input[type="email"], textarea {
     font-size: 16px !important;
   }

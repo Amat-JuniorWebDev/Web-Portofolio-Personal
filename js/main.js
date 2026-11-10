@@ -21,66 +21,44 @@ accordionItems.forEach(item => {
   item.addEventListener('click', () => {
     const isCurrentOpen = item.getAttribute('data-open') === 'true';
 
-    // Reset all items to closed state
     accordionItems.forEach(other => {
       other.setAttribute('data-open', 'false');
       other.className = 'history-item cursor-pointer rounded-[14px] bg-[#FFFFFF] text-primary p-5 border border-[#EEEEEE] transition-all duration-200 select-none shadow-none reveal-up is-revealed';
       
       const period = other.querySelector('.history-period');
-      if (period) {
-        period.className = 'history-period text-[14px] text-[#636363] font-[\'Inter\'] whitespace-nowrap';
-      }
+      if (period) period.className = 'history-period text-[14px] text-[#636363] font-[\'Inter\'] whitespace-nowrap';
 
       const title = other.querySelector('.history-title');
-      if (title) {
-        title.className = 'history-title text-[16px] text-black font-semibold font-[\'Inter_Tight\']';
-      }
+      if (title) title.className = 'history-title text-[16px] text-black font-semibold font-[\'Inter_Tight\']';
 
       const tag = other.querySelector('.history-tag');
-      if (tag) {
-        tag.className = 'history-tag text-xs font-[\'Inter\'] px-2.5 py-0.5 rounded-full border border-[#EEEEEE] text-[#636363]';
-      }
+      if (tag) tag.className = 'history-tag text-xs font-[\'Inter\'] px-2.5 py-0.5 rounded-full border border-[#EEEEEE] text-[#636363]';
 
       const chevron = other.querySelector('.history-chevron');
-      if (chevron) {
-        chevron.className = 'material-symbols-outlined history-chevron text-[16px] text-[#636363] transition-transform duration-200';
-      }
+      if (chevron) chevron.className = 'material-symbols-outlined history-chevron text-[16px] text-[#636363] transition-transform duration-200';
 
       const content = other.querySelector('.history-content');
-      if (content) {
-        content.classList.add('hidden');
-      }
+      if (content) content.classList.add('hidden');
     });
 
-    // If previously not open, open this item
     if (!isCurrentOpen) {
       item.setAttribute('data-open', 'true');
       item.className = 'history-item cursor-pointer rounded-[14px] bg-[#0F0F0F] text-white p-[22px] md:p-[24px] border border-transparent transition-all duration-200 select-none shadow-none reveal-up is-revealed';
       
       const period = item.querySelector('.history-period');
-      if (period) {
-        period.className = 'history-period text-[14px] text-[#A0A0A0] font-[\'Inter\'] whitespace-nowrap';
-      }
+      if (period) period.className = 'history-period text-[14px] text-[#A0A0A0] font-[\'Inter\'] whitespace-nowrap';
 
       const title = item.querySelector('.history-title');
-      if (title) {
-        title.className = 'history-title text-[16px] text-white font-semibold font-[\'Inter_Tight\']';
-      }
+      if (title) title.className = 'history-title text-[16px] text-white font-semibold font-[\'Inter_Tight\']';
 
       const tag = item.querySelector('.history-tag');
-      if (tag) {
-        tag.className = 'history-tag text-xs font-[\'Inter\'] px-2.5 py-0.5 rounded-full border border-neutral-700 text-[#A0A0A0]';
-      }
+      if (tag) tag.className = 'history-tag text-xs font-[\'Inter\'] px-2.5 py-0.5 rounded-full border border-neutral-700 text-[#A0A0A0]';
 
       const chevron = item.querySelector('.history-chevron');
-      if (chevron) {
-        chevron.className = 'material-symbols-outlined history-chevron text-[16px] text-white transition-transform duration-200 rotate-180';
-      }
+      if (chevron) chevron.className = 'material-symbols-outlined history-chevron text-[16px] text-white transition-transform duration-200 rotate-180';
 
       const content = item.querySelector('.history-content');
-      if (content) {
-        content.classList.remove('hidden');
-      }
+      if (content) content.classList.remove('hidden');
     }
   });
 });
@@ -180,7 +158,6 @@ window.addEventListener('keydown', (e) => {
 });
 
 // SCROLL REVEAL ANIMATIONS (SMOOTH ELEGANT)
-// PERBAIKAN: Menjalankan eksekusi animasi secara langsung tanpa menunggu DOMContentLoaded (Mencegah Blank-page)
 const initAnimations = () => {
   const animatedElements = document.querySelectorAll('.reveal-up');
 
@@ -195,7 +172,6 @@ const initAnimations = () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        // Jeda waktu penghapusan transisi diatur ke 2000ms agar sinkron dengan CSS animasi yang mewah (1.8s)
         setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 2000);
         observer.unobserve(entry.target);
       }
@@ -205,5 +181,4 @@ const initAnimations = () => {
   animatedElements.forEach(el => revealObserver.observe(el));
 };
 
-// Panggil fungsi secara langsung karena skrip dipasang di bawah <body>
 initAnimations();
