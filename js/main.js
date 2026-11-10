@@ -24,7 +24,7 @@ accordionItems.forEach(item => {
     // Reset all items to closed state
     accordionItems.forEach(other => {
       other.setAttribute('data-open', 'false');
-      other.className = 'history-item cursor-pointer rounded-[14px] bg-[#FFFFFF] text-primary p-5 border border-[#EEEEEE] transition-all duration-200 select-none shadow-none';
+      other.className = 'history-item cursor-pointer rounded-[14px] bg-[#FFFFFF] text-primary p-5 border border-[#EEEEEE] transition-all duration-200 select-none shadow-none reveal-up is-revealed';
       
       const period = other.querySelector('.history-period');
       if (period) {
@@ -55,7 +55,7 @@ accordionItems.forEach(item => {
     // If previously not open, open this item
     if (!isCurrentOpen) {
       item.setAttribute('data-open', 'true');
-      item.className = 'history-item cursor-pointer rounded-[14px] bg-[#0F0F0F] text-white p-[22px] md:p-[24px] border border-transparent transition-all duration-200 select-none shadow-none';
+      item.className = 'history-item cursor-pointer rounded-[14px] bg-[#0F0F0F] text-white p-[22px] md:p-[24px] border border-transparent transition-all duration-200 select-none shadow-none reveal-up is-revealed';
       
       const period = item.querySelector('.history-period');
       if (period) {
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        // Jeda waktu penghapusan transisi diatur ke 1500ms agar animasi bisa diselesaikan penuh secara lambat & smooth
+        // Jeda waktu penghapusan transisi diatur ke 1500ms agar sejalan dengan durasi animasi yang lebih elegan (1.4s)
         setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 1500);
         observer.unobserve(entry.target);
       }
