@@ -209,7 +209,8 @@
   top: var(--wm-top);
 }
 .hero-wordmark h1 {
-  font-size: var(--wm-size);
+  /* Memastikan font-size mengambil langsung dari variabel tanpa tertimpa Tailwind */
+  font-size: var(--wm-size) !important;
 }
 .hero-portrait img {
   max-height: var(--portrait-h);
@@ -221,6 +222,7 @@
 /* TABLET (640px - 1023px) */
 @media (min-width: 640px) {
   :root {
+    --wm-size: 18vw; /* Ukuran Wordmark Tablet */
     --wm-top: 28%;
     --portrait-h: 70dvh;
     --fade-h: 20dvh; 
@@ -230,14 +232,11 @@
 /* DESKTOP (1024px ke atas) */
 @media (min-width: 1024px) {
   :root {
+    --wm-size: 27vw; /* PERBAIKAN: Membesarkan Wordmark agar meraksasa memenuhi layar Desktop sesuai desain asli Stitch */
     --fade-h: 12vh; 
   }
-  /* PERBAIKAN PENTING: Pada layar desktop, reset style inline agar kelas Tailwind ukuran font (lg:text-[28vw]) bekerja normal kembali */
   .hero-wordmark { 
     top: auto; 
-  }
-  .hero-wordmark h1 { 
-    font-size: inherit !important; 
   }
   .hero-portrait img { 
     max-height: inherit; 

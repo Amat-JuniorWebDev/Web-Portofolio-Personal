@@ -91,10 +91,9 @@
       </div>
 
       <!-- Giant Wordmark Behind Cutout Portrait -->
-      <!-- PERBAIKAN: Di md (tablet) memakai 18vw, dan di lg (desktop) dikembalikan ke ukuran raksasa 28vw, 
-           mengabaikan var(--wm-size) yang mengganggu ukuran layar besar. -->
+      <!-- PERBAIKAN: Kelas ukuran Tailwind dihapus agar tidak saling tumpang tindih dengan CSS kustom. -->
       <div class="absolute inset-x-0 w-full flex justify-center pointer-events-none select-none z-10 hero-wordmark">
-        <h1 class="font-['Inter_Tight'] text-[var(--wm-size)] md:text-[18vw] lg:text-[28vw] leading-none tracking-tighter text-primary font-extrabold text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
+        <h1 class="font-['Inter_Tight'] text-[var(--wm-size)] leading-none tracking-tighter text-primary font-extrabold text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
           RAHMAT©
         </h1>
       </div>
