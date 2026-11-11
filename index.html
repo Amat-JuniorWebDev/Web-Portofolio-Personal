@@ -72,12 +72,14 @@
         </h1>
       </div>
       
-      <!-- Cut-out Portrait: Positioned Mutlak 100% Center at Bottom Flush -->
-      <!-- PERBAIKAN: Kontainer dirubah jadi mutlak terpusat ke poros tengah dengan left-1/2 dan -translate-x-1/2 -->
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-full max-w-[580px] pointer-events-none flex items-end justify-center hero-animate" style="animation-delay: 200ms;">
-        <!-- PERBAIKAN: class w-full h-auto tetap, dan mx-auto ditambah agar center lock sempurna di dalam wadah (container) -->
-        <img alt="Portrait of Rahmat.Tech" class="w-full mx-auto h-auto max-h-[72vh] md:max-h-[78vh] object-contain object-bottom select-none drop-shadow-2xl" src="assets/image/Rahmat.png"/>
-      </div>
+      <!-- PERBAIKAN: Wrapper luar menggunakan inset-x-0 dan flex justify-center agar posisi center tidak mengandalkan transform -->
+<div class="absolute inset-x-0 bottom-0 z-20 flex justify-center pointer-events-none">
+  <!-- PERBAIKAN: Class hero-animate, batasan ukuran (w-full max-w-[580px]), dan flex items-end dipindahkan ke div bagian dalam -->
+  <div class="w-full max-w-[580px] flex items-end justify-center hero-animate" style="animation-delay: 200ms;">
+    <!-- Elemen img tidak diubah sama sekali -->
+    <img alt="Portrait of Rahmat.Tech" class="w-full mx-auto h-auto max-h-[72vh] md:max-h-[78vh] object-contain object-bottom select-none drop-shadow-2xl" src="assets/image/Rahmat.png"/>
+  </div>
+</div>
       
       <!-- Side Editorial Texts (Layer z-30 Above Wordmark) -->
       <div class="relative z-30 w-full max-w-[1440px] mx-auto flex-1 flex flex-col md:flex-row justify-between items-center md:items-end md:pb-24 pointer-events-auto mt-[40vh] md:mt-0 hero-animate" style="animation-delay: 400ms;">
