@@ -2,17 +2,17 @@
 <html class="scroll-smooth" lang="id">
 <head>
   <meta charset="utf-8"/>
-  <!-- TUGAS 1f: viewport-fit=cover ditambahkan agar safe-area-inset bekerja penuh di iOS -->
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
   <title>Rahmat.Tech — Portofolio Swiss Modern Editorial</title>
   
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <!-- TUGAS 4: Menggunakan pasangan font premium (Instrument Serif & Instrument Sans) -->
+  <!-- TUGAS 4: Font pendukung utama (Instrument Serif & Sans) -->
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+  <!-- TUGAS 5: TAMBAHAN Font Newsreader untuk paragraf hero yang mewah dan editorial -->
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   
-  <!-- SCRIPT AUTO-REALTIME (Pengganti PHP) -->
   <script>
     var ts = new Date().getTime();
     document.write('<link href="css/style.css?v=' + ts + '" rel="stylesheet"/>');
@@ -32,9 +32,8 @@
   </svg>
 
   <!-- 1. FIXED TOP NAVIGATION PILL -->
-  <!-- TUGAS 2: Navbar atas disembunyikan di HP (hidden md:block) -->
+  <!-- TUGAS 2: Navbar lama (pill hitam) disembunyikan di HP -->
   <header class="hidden md:block fixed top-6 left-1/2 -translate-x-1/2 rounded-full z-50">
-    <!-- ... (isi navbar desktop persis seperti aslimu, tidak diubah) ... -->
     <nav aria-label="Navigasi Utama" class="bg-[#000000] flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-white/20 h-[47px] select-none shadow-xl">
       <a class="bg-white text-black rounded-full px-3.5 py-1.5 font-['Inter_Tight'] text-[14px] font-medium inline-flex items-center gap-1.5 transition-colors duration-150" href="#about">
         <span class="material-symbols-outlined text-[16px] leading-none" data-icon="home">home</span>
@@ -47,88 +46,91 @@
         <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3.5 py-1.5 font-['Inter_Tight'] text-[14px] font-medium transition-colors duration-150 rounded-full" href="#projects">Projects</a>
         <a class="text-[#A0A0A0] hover:text-white hover:bg-white/10 px-3.5 py-1.5 font-['Inter_Tight'] text-[14px] font-medium transition-colors duration-150 rounded-full" href="#contact">Contact</a>
       </div>
-      <button aria-label="Buka Menu" class="md:hidden flex items-center justify-center text-[#A0A0A0] hover:text-white hover:bg-white/10 px-2.5 py-1.5 rounded-full transition-colors duration-150 ml-1" id="mobile-menu-trigger" type="button">
+      <!-- Trigger mobile menu lama, biarkan tersembunyi karena bottom nav dipakai di HP -->
+      <button aria-label="Buka Menu" class="hidden items-center justify-center text-[#A0A0A0] hover:text-white hover:bg-white/10 px-2.5 py-1.5 rounded-full transition-colors duration-150 ml-1" id="mobile-menu-trigger" type="button">
         <span class="material-symbols-outlined text-[18px]" data-icon="menu">menu</span>
       </button>
     </nav>
   </header>
 
-  <!-- TUGAS 2: BOTTOM NAVIGATION BAR BARU (Gaya Instagram, tampil hanya di HP) -->
-  <nav class="md:hidden fixed inset-x-0 bottom-0 z-50 bg-white border-t border-[#EEEEEE] flex justify-around items-center" style="height: calc(56px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom);">
-    <!-- Item: Home (Aktif default) -->
-    <a href="#about" aria-label="Home" class="bottom-nav-item flex items-center justify-center w-11 h-11 text-black transition-colors" data-target="about">
+  <!-- TUGAS 2: BOTTOM NAVIGATION BAR (Gaya Instagram untuk HP) -->
+  <nav class="md:hidden fixed inset-x-0 bottom-0 z-50 bg-white border-t border-[#EEEEEE] flex justify-around items-center" style="height: calc(56px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom);" aria-label="Navigasi Bawah">
+    <a href="#about" aria-label="Home" class="bottom-nav-item flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 text-black transition-colors" data-target="about">
       <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">home</span>
     </a>
-    <a href="#history" aria-label="Roadmap" class="bottom-nav-item flex items-center justify-center w-11 h-11 text-[#636363] transition-colors" data-target="history">
-      <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">route</span>
+    <a href="#history" aria-label="Roadmap" class="bottom-nav-item flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 text-[#636363] transition-colors" data-target="history">
+      <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">timeline</span>
     </a>
-    <a href="#skill" aria-label="Skill" class="bottom-nav-item flex items-center justify-center w-11 h-11 text-[#636363] transition-colors" data-target="skill">
+    <a href="#skill" aria-label="Skill" class="bottom-nav-item flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 text-[#636363] transition-colors" data-target="skill">
       <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">code</span>
     </a>
-    <a href="#certificate" aria-label="Sertifikat" class="bottom-nav-item flex items-center justify-center w-11 h-11 text-[#636363] transition-colors" data-target="certificate">
+    <a href="#certificate" aria-label="Sertifikat" class="bottom-nav-item flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 text-[#636363] transition-colors" data-target="certificate">
       <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">workspace_premium</span>
     </a>
-    <a href="#projects" aria-label="Projects" class="bottom-nav-item flex items-center justify-center w-11 h-11 text-[#636363] transition-colors" data-target="projects">
-      <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">grid_view</span>
+    <a href="#projects" aria-label="Projects" class="bottom-nav-item flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 text-[#636363] transition-colors" data-target="projects">
+      <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">work</span>
     </a>
-    <a href="#contact" aria-label="Contact" class="bottom-nav-item flex items-center justify-center w-11 h-11 text-[#636363] transition-colors" data-target="contact">
+    <a href="#contact" aria-label="Contact" class="bottom-nav-item flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 text-[#636363] transition-colors" data-target="contact">
       <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">mail</span>
     </a>
   </nav>
   
-  <!-- Mobile Dropdown Tray (Disembunyikan sepenuhnya via JS CSS karena sudah pakai Bottom Nav) -->
-  <div class="hidden fixed top-20 left-1/2 -translate-x-1/2 w-[90vw] max-w-xs bg-[#000000] rounded-2xl p-4 border border-white/20 z-50 flex-col gap-2 shadow-2xl" id="mobile-menu">
-    <!-- ... isi ... -->
+  <!-- Menu mobile lama disembunyikan total karena navigasi bawah sekarang dipakai -->
+  <div class="hidden fixed top-20 left-1/2 -translate-x-1/2 w-[90vw] max-w-xs bg-[#000000] rounded-2xl p-4 border border-white/20 z-[99] flex-col gap-2 shadow-2xl" id="mobile-menu">
+    <!-- Isi sengaja dikosongkan/disembunyikan karena fungsinya digantikan navigasi bawah -->
   </div>
   
   <main>
-  <!-- 2. HERO SECTION (#about) -->
-    <!-- TUGAS 1: min-h-[100dvh], pb-0 di HP agar rapat. -->
+    <!-- 2. HERO SECTION (#about) -->
+    <!-- TUGAS 1: min-h-[100dvh] dengan padding responsif -->
     <section class="relative w-full h-screen min-h-[100dvh] md:min-h-[820px] overflow-hidden flex flex-col pt-16 md:pt-32 pb-0 px-6 md:px-12 hero-glow-layer" id="about">
       
       <!-- Grain Overlay -->
       <div class="absolute inset-0 pointer-events-none z-[1]" style="filter: url(#editorial-noise); opacity: 0.85;"></div>
-      
-      <!-- TUGAS 1a: Teks Pengantar di HP pindah ke Kiri Bawah (absolute), tanpa box. Sembunyi di md+ -->
-      <div class="absolute z-30 pointer-events-auto hero-animate md:hidden" style="bottom: calc(56px + env(safe-area-inset-bottom) + 16px); left: 24px; max-width: 230px; animation-delay: 300ms;">
-        <p class="font-['Inter'] text-[13px] text-[#111111] leading-[1.7] font-normal text-left">
-          Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
-        </p>
-      </div>
 
       <!-- Giant Wordmark Behind Cutout Portrait -->
-      <!-- TUGAS 1b: Ukuran Font turun ~15% via CSS Variable agar muat elegan di HP. (z-10 di belakang potret) -->
+      <!-- TUGAS 1b & 3: Wordmark dikecilkan di HP (font-size dikontrol CSS variable), dan ditaruh di z-10 (belakang potret) -->
       <div class="absolute inset-x-0 w-full flex justify-center pointer-events-none select-none z-10 hero-wordmark">
-        <!-- class font di-override oleh CSS Tugas 4 agar tampil Instrument Serif -->
         <h1 class="font-['Inter_Tight'] text-[var(--wm-size)] md:text-[16vw] lg:text-[18vw] leading-none tracking-tighter text-primary font-bold text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
           RAHMAT©
         </h1>
       </div>
       
       <!-- Cut-out Portrait -->
-      <!-- TUGAS 1c: Potret menimpa wordmark, max height diatur via --portrait-h. (z-20) -->
+      <!-- TUGAS 1c: Potret tetap center, menempel di bawah (z-20), tinggi (max-height) dikendalikan CSS Variable agar kepala stabil. -->
       <div class="absolute inset-x-0 bottom-0 z-20 flex justify-center pointer-events-none">
-        <div class="w-full max-w-[420px] sm:max-w-[520px] md:max-w-[580px] flex items-end justify-center hero-animate hero-portrait" style="animation-delay: 200ms;">
-          <!-- TUGAS 4: Drop-shadow dihapus di HP/Tablet agar ringan -->
+        <div class="w-full max-w-[420px] sm:max-w-[480px] md:max-w-[580px] flex items-end justify-center hero-animate hero-portrait" style="animation-delay: 200ms;">
+          <!-- Drop-shadow di HP dihapus agar bersih dan ringan -->
           <img alt="Portrait of Rahmat.Tech" class="w-full mx-auto h-auto object-contain object-bottom select-none lg:drop-shadow-2xl" src="assets/image/Rahmat.png"/>
         </div>
       </div>
-
-      <!-- TUGAS 1d & 3: White Fade Gradient Overlay. -->
-      <!-- HP: Z-index 25 menutupi kaki potret, tapi di bawah Teks Pengantar (z-30). Desktop/Tablet: lebih tipis. -->
+      
+      <!-- TUGAS 1d & 4: Overlay Fade Putih Solid di bawah untuk menenggelamkan kaki di HP. (Z-index 25, menutupi potret tapi DI BAWAH teks pengantar) -->
       <div class="absolute inset-x-0 bottom-0 z-[25] pointer-events-none bg-gradient-to-t from-white via-white/80 to-transparent hero-fade"></div>
 
-      <!-- Side Editorial Texts (Layer z-30, HANYA TABLET & DESKTOP) -->
+      <!-- TUGAS 1a: TEKS PENGANTAR HP SAJA (Pojok Kiri Bawah) -->
+      <!-- Absolute bottom, di atas navbar, z-30 (di atas fade putih) -->
+      <div class="absolute z-30 pointer-events-auto hero-animate md:hidden" style="bottom: calc(56px + env(safe-area-inset-bottom) + 16px); left: 24px; max-width: 60%; animation-delay: 300ms;">
+        <!-- TUGAS 5: Font Newsreader dengan x-height kompensasi -->
+        <p class="font-['Newsreader'] text-[15px] text-[#111111] leading-[1.6] font-normal text-left">
+          Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
+        </p>
+      </div>
+
+      <!-- Side Editorial Texts (Layer z-30, HANYA TAMPIL DI TABLET/DESKTOP) -->
       <div class="hidden md:flex relative z-30 w-full max-w-[1440px] mx-auto flex-1 flex-row justify-between items-end md:pb-[15vh] lg:pb-24 pointer-events-auto hero-animate" style="animation-delay: 400ms;">
         <!-- Left Text Block -->
         <div class="w-full max-w-[340px] lg:max-w-[360px]">
-          <p class="font-['Inter'] text-[14px] md:text-[16px] text-primary leading-[1.7] md:leading-relaxed font-normal text-left">
+          <!-- TUGAS 5: Font Newsreader -->
+          <p class="font-['Newsreader'] text-[16px] text-primary/80 lg:text-primary leading-[1.6] font-normal text-left">
             Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
           </p>
         </div>
+        
         <!-- Right Text Block -->
         <div class="w-full max-w-[340px] text-right">
-          <p class="font-['Inter'] text-[14px] md:text-[16px] text-[#636363] lg:text-primary leading-[1.7] md:leading-relaxed font-normal text-right">
+          <!-- TUGAS 5: Font Newsreader -->
+          <p class="font-['Newsreader'] text-[16px] text-primary/80 lg:text-primary leading-[1.6] font-normal text-right">
             Menghadirkan pengalaman digital yang fungsional, bersih, dan berbobot tanpa ornamen berlebih.
           </p>
         </div>
@@ -136,14 +138,14 @@
       
     </section>
 
-    <!-- TUGAS 1e: Baris Bawah. Sembunyi total di HP (hidden md:block), tampil di Tablet/Desktop persis seperti aslinya. -->
-    <div class="hidden md:block relative z-40 w-full px-6 md:px-12 py-[max(16px,env(safe-area-inset-bottom))] md:py-6 flex items-center justify-between border-t border-hairline/40">
+    <!-- TUGAS 1e: Baris Bawah. Sembunyi total di HP (hidden md:flex), tampil di Tablet/Desktop persis seperti aslinya. -->
+    <div class="hidden md:flex relative z-40 w-full px-6 md:px-12 py-[max(16px,env(safe-area-inset-bottom))] md:py-6 items-center justify-between border-t border-hairline/40">
       <div class="w-full max-w-[1440px] mx-auto flex items-center justify-between hero-animate" style="animation-delay: 600ms;">
-        <span class="font-['Inter'] text-[12px] text-primary tracking-tight font-medium bg-white/40 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none px-2 py-1 md:p-0 rounded-md">
-          © Rahmat.Tech 2026
+        <span class="font-['Inter'] text-[11px] uppercase tracking-[0.06em] text-primary font-bold">
+          © RAHMAT.TECH 2026
         </span>
-        <a class="font-['Inter'] text-[12px] text-primary hover:opacity-70 transition-opacity font-medium bg-white/40 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none px-2 py-1 md:p-0 rounded-md" href="#tentang-saya">
-          (Scroll down)
+        <a class="font-['Inter'] text-[11px] uppercase tracking-[0.06em] text-primary hover:opacity-70 transition-opacity font-bold" href="#tentang-saya">
+          (SCROLL DOWN)
         </a>
       </div>
     </div>

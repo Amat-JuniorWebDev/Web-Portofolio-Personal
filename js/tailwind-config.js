@@ -79,7 +79,7 @@ tailwind.config = {
         "margin-mobile": "1.25rem"
       },
       fontFamily: {
-        /* TUGAS 4: Diganti menjadi Instrument Sans dan Instrument Serif */
+        /* Menggunakan Instrument Sans & Instrument Serif */
         "body-lg": ["'Instrument Sans'", "sans-serif"],
         "caption": ["'Instrument Sans'", "sans-serif"],
         "display-xl": ["'Instrument Serif'", "serif"],

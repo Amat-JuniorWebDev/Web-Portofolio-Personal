@@ -177,3 +177,65 @@
   .hero-wordmark h1 { font-size: inherit; }
   .hero-portrait img { max-height: inherit; }
 }
+
+/* ========================================================
+   TUGAS 4: OVERRIDE FONT (Premium Swiss Editorial)
+   ======================================================== */
+[class*="font-['Inter_Tight']"],
+[class*="font-display-"],
+[class*="font-headline-"] {
+  font-family: 'Instrument Serif', serif !important;
+  font-weight: 400 !important; /* Mencegah faux-bold pada font elegan */
+}
+
+[class*="font-['Inter']"],
+[class*="font-body-"],
+[class*="font-caption"] {
+  font-family: 'Instrument Sans', sans-serif !important;
+}
+
+/* ========================================================
+   TUGAS 1, 3 & 4: VARIABEL HIERARKI VISUAL HERO
+   ======================================================== */
+:root {
+  /* TUGAS 1b: Wordmark dikecilkan di HP pakai clamp agar stabil */
+  --wm-size: clamp(56px, 16vw, 120px);
+  --wm-top: 25dvh;
+  /* TUGAS 1c: Tinggi gambar membatasi kepala agar pas ke wordmark */
+  --portrait-h: calc(100dvh - var(--wm-top) + 2dvh);
+  /* TUGAS 1d: Overlay fade putih tebal untuk HP agar teks & nav aman */
+  --fade-h: 36dvh; 
+}
+
+.hero-wordmark {
+  top: var(--wm-top);
+}
+.hero-wordmark h1 {
+  font-size: var(--wm-size);
+}
+.hero-portrait img {
+  max-height: var(--portrait-h);
+}
+.hero-fade {
+  height: var(--fade-h);
+}
+
+/* TABLET (640px - 1023px) */
+@media (min-width: 640px) {
+  :root {
+    --wm-size: 17vw;
+    --wm-top: 28%;
+    --portrait-h: 70dvh;
+    --fade-h: 20dvh; /* TUGAS 3: Fade sedang di tablet */
+  }
+}
+
+/* DESKTOP (1024px ke atas) - IDENTIK DENGAN ASLINYA */
+@media (min-width: 1024px) {
+  :root {
+    --fade-h: 12vh; /* TUGAS 3: Fade tipis di layar raksasa */
+  }
+  .hero-wordmark { top: auto; }
+  .hero-wordmark h1 { font-size: inherit; }
+  .hero-portrait img { max-height: inherit; }
+}
