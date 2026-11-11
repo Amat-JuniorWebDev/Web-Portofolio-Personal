@@ -82,3 +82,33 @@
     font-size: 16px !important;
   }
 }
+
+/* Variabel kontrol hierarki & layering Hero (Pendekatan Mobile First) */
+:root {
+  --wordmark-top: 32dvh;
+  --portrait-h: 62dvh;
+}
+
+.hero-wordmark {
+  top: var(--wordmark-top);
+}
+
+.hero-portrait img {
+  max-height: var(--portrait-h);
+}
+
+/* Tablet (md) */
+@media (min-width: 768px) {
+  :root {
+    --wordmark-top: 25%;
+    --portrait-h: 70vh;
+  }
+}
+
+/* Desktop (lg) - Kembali identik dengan setting awal */
+@media (min-width: 1024px) {
+  :root {
+    --wordmark-top: 25%;
+    --portrait-h: 78vh;
+  }
+}
