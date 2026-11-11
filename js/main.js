@@ -182,3 +182,38 @@ const initAnimations = () => {
 };
 
 initAnimations();
+
+// TUGAS 2: SCROLL-SPY UNTUK BOTTOM NAV MOBILE (INSTAGRAM STYLE)
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.bottom-nav-item');
+  const navIcons = document.querySelectorAll('.bottom-nav-item .material-symbols-outlined');
+
+  if(navItems.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      let activeId = '';
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+          activeId = entry.target.id;
+        }
+      });
+
+      if (activeId) {
+        navItems.forEach((item, index) => {
+          const icon = navIcons[index];
+          if (item.getAttribute('data-target') === activeId) {
+            item.classList.remove('text-[#636363]');
+            item.classList.add('text-black');
+            icon.style.fontVariationSettings = "'FILL' 1";
+          } else {
+            item.classList.remove('text-black');
+            item.classList.add('text-[#636363]');
+            icon.style.fontVariationSettings = "'FILL' 0";
+          }
+        });
+      }
+    }, { threshold: [0.3, 0.5, 0.8] });
+
+    sections.forEach(sec => observer.observe(sec));
+  }
+});

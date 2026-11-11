@@ -113,3 +113,67 @@
     --portrait-h: 78vh; /* Atau 72vh sesuai setup max-h awal */
   }
 }
+
+/* ========================================================
+   TUGAS 4: OVERRIDE FONT (Premium Swiss Editorial)
+   Mengganti Inter/Inter Tight dengan Instrument Serif & Sans
+   ======================================================== */
+[class*="font-['Inter_Tight']"],
+[class*="font-display-"],
+[class*="font-headline-"] {
+  font-family: 'Instrument Serif', serif !important;
+  font-weight: 400 !important; /* Instrument Serif hanya ada regular, faux bold dilarang */
+}
+
+[class*="font-['Inter']"],
+[class*="font-body-"],
+[class*="font-caption"] {
+  font-family: 'Instrument Sans', sans-serif !important;
+}
+
+/* ========================================================
+   TUGAS 1 & 3: VARIABEL HIERARKI VISUAL & FADE
+   ======================================================== */
+:root {
+  /* TUGAS 1b: Wordmark diperkecil ~15% dan ditaruh agak ke atas agar lapang */
+  --wm-size: 19vw;
+  --wm-top: 25dvh;
+  /* TUGAS 1c: Potret dibatasi agar kepala pas menimpa huruf */
+  --portrait-h: calc(100dvh - var(--wm-top) + 2dvh);
+  /* TUGAS 1d: Fade putih solid di bawah untuk menenggelamkan kaki di HP */
+  --fade-h: 36dvh; 
+}
+
+.hero-wordmark {
+  top: var(--wm-top);
+}
+.hero-wordmark h1 {
+  font-size: var(--wm-size);
+}
+.hero-portrait img {
+  max-height: var(--portrait-h);
+}
+.hero-fade {
+  height: var(--fade-h);
+}
+
+/* TABLET (640px - 1023px) */
+@media (min-width: 640px) {
+  :root {
+    --wm-size: 17vw;
+    --wm-top: 28%;
+    --portrait-h: 70dvh;
+    --fade-h: 20dvh; /* TUGAS 3 */
+  }
+}
+
+/* DESKTOP (1024px ke atas) - IDENTIK DENGAN ASLINYA */
+@media (min-width: 1024px) {
+  :root {
+    /* Nilai dikembalikan ke asalnya (tidak dipakai di class CSS Desktop) */
+    --fade-h: 12vh; /* TUGAS 3: Tipis saja */
+  }
+  .hero-wordmark { top: auto; }
+  .hero-wordmark h1 { font-size: inherit; }
+  .hero-portrait img { max-height: inherit; }
+}

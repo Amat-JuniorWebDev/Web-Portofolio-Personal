@@ -79,21 +79,22 @@ tailwind.config = {
         "margin-mobile": "1.25rem"
       },
       fontFamily: {
-        "body-lg": ["Inter", "sans-serif"],
-        "caption": ["Inter", "sans-serif"],
-        "display-xl": ["'Inter Tight'", "Inter", "sans-serif"],
-        "label-sm": ["Inter", "sans-serif"],
-        "body-md": ["Inter", "sans-serif"],
-        "display-xl-mobile": ["'Inter Tight'", "Inter", "sans-serif"],
-        "display-hero-mobile": ["'Inter Tight'", "Inter", "sans-serif"],
-        "headline-lg-mobile": ["'Inter Tight'", "Inter", "sans-serif"],
-        "headline-lg": ["'Inter Tight'", "Inter", "sans-serif"],
-        "headline-sm": ["'Inter Tight'", "Inter", "sans-serif"],
-        "display-cta": ["'Inter Tight'", "Inter", "sans-serif"],
-        "display-cta-mobile": ["'Inter Tight'", "Inter", "sans-serif"],
-        "button": ["'Inter Tight'", "Inter", "sans-serif"],
-        "display-hero": ["'Inter Tight'", "Inter", "sans-serif"],
-        "body-md-medium": ["Inter", "sans-serif"]
+        /* TUGAS 4: Diganti menjadi Instrument Sans dan Instrument Serif */
+        "body-lg": ["'Instrument Sans'", "sans-serif"],
+        "caption": ["'Instrument Sans'", "sans-serif"],
+        "display-xl": ["'Instrument Serif'", "serif"],
+        "label-sm": ["'Instrument Sans'", "sans-serif"],
+        "body-md": ["'Instrument Sans'", "sans-serif"],
+        "display-xl-mobile": ["'Instrument Serif'", "serif"],
+        "display-hero-mobile": ["'Instrument Serif'", "serif"],
+        "headline-lg-mobile": ["'Instrument Serif'", "serif"],
+        "headline-lg": ["'Instrument Serif'", "serif"],
+        "headline-sm": ["'Instrument Serif'", "serif"],
+        "display-cta": ["'Instrument Serif'", "serif"],
+        "display-cta-mobile": ["'Instrument Serif'", "serif"],
+        "button": ["'Instrument Serif'", "serif"],
+        "display-hero": ["'Instrument Serif'", "serif"],
+        "body-md-medium": ["'Instrument Sans'", "sans-serif"]
       },
       fontSize: {
         "body-lg": ["1rem", { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" }],
