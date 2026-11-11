@@ -83,7 +83,7 @@
       <!-- Grain Overlay -->
       <div class="absolute inset-0 pointer-events-none z-[1]" style="filter: url(#editorial-noise); opacity: 0.85;"></div>
       
-      <!-- TUGAS 1a & 5: Teks Pengantar di HP pindah ke Kiri Bawah, menggunakan font Newsreader -->
+      <!-- Teks Pengantar di HP pindah ke Kiri Bawah, menggunakan font Newsreader -->
       <div class="absolute z-30 pointer-events-auto hero-animate md:hidden" style="bottom: calc(56px + env(safe-area-inset-bottom) + 16px); left: 24px; max-width: 230px; animation-delay: 300ms;">
         <p class="font-['Newsreader'] text-[15px] text-[#111111] leading-[1.6] font-normal text-left">
           Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
@@ -91,22 +91,22 @@
       </div>
 
       <!-- Giant Wordmark Behind Cutout Portrait -->
-      <!-- PERBAIKAN: Ukuran text diubah dari md:[16vw] lg:[18vw] menjadi md:[24vw] lg:[28vw] agar teks "RAHMAT©" kembali raksasa memenuhi layar desktop -->
+      <!-- PERBAIKAN: Di md (tablet) memakai 18vw, dan di lg (desktop) dikembalikan ke ukuran raksasa 28vw, 
+           mengabaikan var(--wm-size) yang mengganggu ukuran layar besar. -->
       <div class="absolute inset-x-0 w-full flex justify-center pointer-events-none select-none z-10 hero-wordmark">
-        <h1 class="font-['Inter_Tight'] text-[var(--wm-size)] md:text-[24vw] lg:text-[28vw] leading-none tracking-tighter text-primary font-extrabold text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
+        <h1 class="font-['Inter_Tight'] text-[var(--wm-size)] md:text-[18vw] lg:text-[28vw] leading-none tracking-tighter text-primary font-extrabold text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
           RAHMAT©
         </h1>
       </div>
       
       <!-- Cut-out Portrait -->
-      <!-- (Bagian ini tidak diubah, disertakan agar mudah di-copy) -->
       <div class="absolute inset-x-0 bottom-0 z-20 flex justify-center pointer-events-none">
         <div class="w-full max-w-[420px] sm:max-w-[520px] md:max-w-[580px] flex items-end justify-center hero-animate hero-portrait" style="animation-delay: 200ms;">
           <img alt="Portrait of Rahmat.Tech" class="w-full mx-auto h-auto object-contain object-bottom select-none lg:drop-shadow-2xl" src="assets/image/Rahmat.png"/>
         </div>
       </div>
 
-      <!-- TUGAS 1d & 4: White Fade Gradient Overlay -->
+      <!-- White Fade Gradient Overlay -->
       <div class="absolute inset-x-0 bottom-0 z-[25] pointer-events-none bg-gradient-to-t from-white via-white/80 to-transparent hero-fade"></div>
 
       <!-- Side Editorial Texts (Layer z-30, HANYA TABLET & DESKTOP) -->
@@ -125,7 +125,7 @@
       
     </section>
 
-    <!-- TUGAS 1e: Baris Bawah. Sembunyi di HP. -->
+    <!-- Baris Bawah. Sembunyi di HP. -->
     <div class="hidden md:flex relative z-40 w-full px-6 md:px-12 py-[max(16px,env(safe-area-inset-bottom))] md:py-6 items-center justify-between border-t border-hairline/40">
       <div class="w-full max-w-[1440px] mx-auto flex items-center justify-between hero-animate" style="animation-delay: 600ms;">
         <span class="font-['Inter'] text-[11px] uppercase tracking-[0.06em] text-primary font-bold">
