@@ -59,51 +59,58 @@
   </div>
   
   <main>
-    <!-- 2. HERO SECTION (#about) -->
-    <section class="relative w-full h-screen min-h-[820px] overflow-hidden flex flex-col pt-32 pb-8 px-6 md:px-12 hero-glow-layer" id="about">
+  <!-- 2. HERO SECTION (#about) -->
+    <!-- PERBAIKAN: Mengganti h-screen dengan min-h-[100dvh] dan padding safe-area bawah untuk mobile -->
+    <section class="relative w-full h-screen min-h-[100dvh] md:min-h-[820px] overflow-hidden flex flex-col pt-32 pb-[calc(2rem+env(safe-area-inset-bottom))] md:pb-8 px-6 md:px-12 hero-glow-layer" id="about">
       
-      <!-- Grain Overlay -->
+      <!-- Grain Overlay (Tetap Utuh) -->
       <div class="absolute inset-0 pointer-events-none z-[1]" style="filter: url(#editorial-noise); opacity: 0.85;"></div>
       
       <!-- Giant Wordmark Behind Cutout Portrait -->
-      <div class="absolute top-[20%] md:top-[25%] left-0 right-0 z-10 select-none pointer-events-none flex justify-center w-full">
-        <h1 class="font-['Inter_Tight'] text-[20vw] md:text-[16vw] leading-none tracking-tighter text-primary font-bold w-full text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
+      <!-- PERBAIKAN: Menurunkan posisi di HP (top-[34%]) dan memperkecil font ke 13vw agar ada margin yang elegan -->
+      <div class="absolute top-[34%] sm:top-[28%] md:top-[25%] left-0 right-0 z-10 select-none pointer-events-none flex justify-center w-full">
+        <h1 class="font-['Inter_Tight'] text-[13vw] sm:text-[14vw] md:text-[16vw] leading-none tracking-tighter text-primary font-bold w-full text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
           RAHMAT©
         </h1>
       </div>
       
-      <!-- PERBAIKAN: Wrapper luar menggunakan inset-x-0 dan flex justify-center agar posisi center tidak mengandalkan transform -->
-<div class="absolute inset-x-0 bottom-0 z-20 flex justify-center pointer-events-none">
-  <!-- PERBAIKAN: Class hero-animate, batasan ukuran (w-full max-w-[580px]), dan flex items-end dipindahkan ke div bagian dalam -->
-  <div class="w-full max-w-[580px] flex items-end justify-center hero-animate" style="animation-delay: 200ms;">
-    <!-- Elemen img tidak diubah sama sekali -->
-    <img alt="Portrait of Rahmat.Tech" class="w-full mx-auto h-auto max-h-[72vh] md:max-h-[78vh] object-contain object-bottom select-none drop-shadow-2xl" src="assets/image/Rahmat.png"/>
-  </div>
-</div>
+      <!-- Cut-out Portrait -->
+      <div class="absolute inset-x-0 bottom-0 z-20 flex justify-center pointer-events-none">
+        <!-- PERBAIKAN: Max-width disesuaikan untuk HP, drop-shadow dihapus khusus di mobile/tablet agar lebih ringan -->
+        <div class="w-full max-w-[420px] sm:max-w-[480px] md:max-w-[580px] flex items-end justify-center hero-animate" style="animation-delay: 200ms;">
+          <img alt="Portrait of Rahmat.Tech" class="w-full mx-auto h-auto max-h-[62dvh] sm:max-h-[65dvh] md:max-h-[78vh] object-contain object-bottom select-none lg:drop-shadow-2xl" src="assets/image/Rahmat.png"/>
+        </div>
+      </div>
       
       <!-- Side Editorial Texts (Layer z-30 Above Wordmark) -->
-      <div class="relative z-30 w-full max-w-[1440px] mx-auto flex-1 flex flex-col md:flex-row justify-between items-center md:items-end md:pb-24 pointer-events-auto mt-[40vh] md:mt-0 hero-animate" style="animation-delay: 400ms;">
+      <!-- PERBAIKAN: Ubah margin atas (mt-2) di HP agar teks pindah ke atas, justify-start (HP) & gap rapi -->
+      <div class="relative z-30 w-full max-w-[1440px] mx-auto flex-1 flex flex-col md:flex-row justify-start md:justify-between items-center md:items-end md:pb-24 pointer-events-auto mt-2 sm:mt-6 md:mt-0 gap-3 md:gap-0 hero-animate" style="animation-delay: 400ms;">
+        
         <!-- Left Text Block -->
-        <div class="w-full max-w-[360px] self-center md:self-auto mb-4 md:mb-0">
-          <p class="font-['Inter'] text-[14px] md:text-[16px] text-primary leading-relaxed font-normal bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-xl text-center md:text-left shadow-sm md:shadow-none border border-white/20 md:border-transparent">
+        <!-- PERBAIKAN: backdrop-blur & bg dihapus total, teks diperkecil & line-height diperlebar di HP -->
+        <div class="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] self-center md:self-auto mb-0 md:mb-0">
+          <p class="font-['Inter'] text-[13.5px] sm:text-[14px] md:text-[16px] text-primary leading-[1.8] md:leading-relaxed font-normal text-center md:text-left">
             Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
           </p>
         </div>
         
         <!-- Right Text Block -->
-        <div class="w-full max-w-[340px] self-center md:self-auto text-center md:text-right">
-          <p class="font-['Inter'] text-[14px] md:text-[16px] text-primary leading-relaxed font-normal bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-xl shadow-sm md:shadow-none border border-white/20 md:border-transparent">
+        <!-- PERBAIKAN: Disembunyikan sepenuhnya di HP (hidden sm:block) agar tidak terlalu ramai -->
+        <div class="hidden sm:block w-full max-w-[300px] md:max-w-[340px] self-center md:self-auto text-center md:text-right">
+          <p class="font-['Inter'] text-[14px] md:text-[16px] text-primary leading-[1.8] md:leading-relaxed font-normal text-center md:text-right">
             Menghadirkan pengalaman digital yang fungsional, bersih, dan berbobot tanpa ornamen berlebih.
           </p>
         </div>
       </div>
       
       <!-- Hero Bottom Row Indicator -->
-      <div class="relative z-30 w-full max-w-[1440px] mx-auto flex items-center justify-between pt-6 border-t border-hairline/40 hero-animate mt-auto" style="animation-delay: 600ms;">
-        <span class="font-['Inter'] text-[12px] text-primary tracking-tight font-medium bg-white/40 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none px-2 py-1 md:p-0 rounded-md">
+      <!-- PERBAIKAN: Diubah jadi center di HP, dan box effect dihapus agar ultra bersih -->
+      <div class="relative z-30 w-full max-w-[1440px] mx-auto flex items-center justify-center sm:justify-between pt-6 border-t border-hairline/40 hero-animate mt-auto" style="animation-delay: 600ms;">
+        <span class="font-['Inter'] text-[12px] text-primary tracking-tight font-medium">
           © Rahmat.Tech 2026
         </span>
-        <a class="font-['Inter'] text-[12px] text-primary hover:opacity-70 transition-opacity font-medium bg-white/40 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none px-2 py-1 md:p-0 rounded-md" href="#tentang-saya">
+        <!-- PERBAIKAN: Sembunyikan "Scroll down" di HP agar tidak tertabrak potret -->
+        <a class="hidden sm:inline-block font-['Inter'] text-[12px] text-primary hover:opacity-70 transition-opacity font-medium" href="#tentang-saya">
           (Scroll down)
         </a>
       </div>
