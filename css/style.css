@@ -85,8 +85,9 @@
 
 /* Variabel kontrol hierarki & layering Hero (Pendekatan Mobile First) */
 :root {
-  --wordmark-top: 32dvh;
-  --portrait-h: 62dvh;
+  --wordmark-top: 25dvh;
+  /* Kalkulasi agar tinggi potret aman dan kepala menimpa wordmark */
+  --portrait-h: calc(100dvh - var(--wordmark-top) - 10dvh);
 }
 
 .hero-wordmark {
@@ -109,6 +110,6 @@
 @media (min-width: 1024px) {
   :root {
     --wordmark-top: 25%;
-    --portrait-h: 78vh;
+    --portrait-h: 78vh; /* Atau 72vh sesuai setup max-h awal */
   }
 }

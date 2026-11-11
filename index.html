@@ -60,74 +60,75 @@
   
   <main>
   <!-- 2. HERO SECTION (#about) -->
-<!-- PERBAIKAN: Padding responsif, tinggi 100dvh dengan max height opsional untuk kestabilan di tablet -->
-<section class="relative w-full h-screen min-h-[100dvh] md:min-h-[820px] overflow-hidden flex flex-col pt-[100px] md:pt-32 pb-0 px-6 md:px-12 hero-glow-layer" id="about">
-  
-  <!-- Grain Overlay (Tetap Utuh) -->
-  <div class="absolute inset-0 pointer-events-none z-[0]" style="filter: url(#editorial-noise); opacity: 0.85;"></div>
-  
-  <!-- PERBAIKAN: Paragraf Pengantar (HP) diletakkan DI ATAS Wordmark dengan margin rapi, tanpa blur/box, warna abu gelap (text-primary/70).
-       Di tablet/desktop akan tersembunyi (hidden md:flex) -->
-  <div class="relative z-30 flex-col items-center gap-4 w-full max-w-[280px] mx-auto text-center pointer-events-auto hero-animate mb-[5vh] md:hidden flex" style="animation-delay: 300ms;">
-    <p class="font-['Inter'] text-[12px] sm:text-[13px] text-primary/70 leading-[1.7] font-normal">
-      Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
-    </p>
-    <!-- Paragraf kedua disembunyikan secara default di class luar, jadi hapus saja dari sini -->
-  </div>
+    <!-- PERBAIKAN: Menggunakan min-h-[100dvh] dan memisahkan bagian bawah (baris hak cipta) agar tidak bentrok dengan potret -->
+    <section class="relative w-full min-h-[100dvh] md:min-h-[820px] overflow-hidden flex flex-col pt-24 md:pt-32 pb-0 px-5 md:px-12 hero-glow-layer" id="about">
+      
+      <!-- Grain Overlay (Tetap Utuh) -->
+      <div class="absolute inset-0 pointer-events-none z-[0]" style="filter: url(#editorial-noise); opacity: 0.85;"></div>
+      
+      <!-- PERBAIKAN: Teks Pengantar (Hanya Paragraf 1 di HP, rata kiri, di bawah nav) -->
+      <div class="relative z-30 w-full pt-4 md:pt-0 flex flex-col md:flex-row items-start md:items-end justify-start md:justify-between pointer-events-auto hero-animate md:hidden" style="animation-delay: 300ms;">
+        <div class="flex flex-col gap-2 mt-4 max-w-[280px] text-left">
+          <!-- Hanya paragraf pertama yang ditampilkan di HP -->
+          <p class="font-['Inter'] text-[14px] text-primary leading-snug font-normal">
+            Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
+          </p>
+        </div>
+      </div>
 
-  <!-- Giant Wordmark Behind Cutout Portrait -->
-  <!-- PERBAIKAN: Z-index 10 (di belakang potret). Menggunakan custom property --wordmark-top untuk posisi Y. Ukuran diperbesar jadi 22vw di HP agar lebar ~88% layar, tidak mepet. -->
-  <div class="absolute inset-x-0 w-full flex justify-center pointer-events-none select-none z-10 hero-wordmark">
-    <h1 class="font-['Inter_Tight'] text-[22vw] md:text-[16vw] leading-none tracking-tighter text-primary font-bold text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
-      RAHMAT©
-    </h1>
-  </div>
-  
-  <!-- Cut-out Portrait -->
-  <!-- PERBAIKAN: Z-index 20 (di depan wordmark). Wrapper absolute center bawah. Menggunakan custom property --portrait-h untuk tinggi. Drop shadow dihapus di mobile. -->
-  <div class="absolute inset-x-0 bottom-0 z-20 flex justify-center pointer-events-none">
-    <div class="w-full max-w-[420px] sm:max-w-[480px] md:max-w-[580px] flex items-end justify-center hero-animate hero-portrait" style="animation-delay: 200ms;">
-      <!-- Gambar bergeser ke kiri 2% untuk menyeimbangkan secara visual -->
-      <img alt="Portrait of Rahmat.Tech" class="w-full mx-auto h-auto object-contain object-bottom select-none lg:drop-shadow-2xl -ml-[2%]" src="assets/image/Rahmat.png"/>
+      <!-- Giant Wordmark Behind Cutout Portrait -->
+      <!-- PERBAIKAN: Z-index 10, posisi top diatur oleh CSS variable, ukuran diset dengan clamp agar pas di HP -->
+      <div class="absolute inset-x-0 w-full flex justify-center pointer-events-none select-none z-10 hero-wordmark">
+        <!-- Di desktop (lg) text-[18vw] dikembalikan sesuai setting asal -->
+        <h1 class="font-['Inter_Tight'] text-[clamp(64px,22vw,120px)] md:text-[16vw] lg:text-[18vw] leading-none tracking-tighter text-primary font-bold text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
+          RAHMAT©
+        </h1>
+      </div>
+      
+      <!-- Cut-out Portrait -->
+      <!-- PERBAIKAN: Z-index 20. Wrapper flex-justify-center. Tinggi dibatasi oleh CSS Variable -->
+      <div class="absolute inset-x-0 bottom-0 z-20 flex justify-center pointer-events-none px-2">
+        <!-- Max-width disesuaikan untuk tablet (520px). Drop-shadow ditiadakan di sm/md agar ringan -->
+        <div class="w-full max-w-[340px] md:max-w-[520px] lg:max-w-[580px] flex items-end justify-center hero-animate hero-portrait" style="animation-delay: 200ms;">
+          <img alt="Portrait of Rahmat.Tech" class="w-full h-auto object-contain object-bottom select-none lg:drop-shadow-2xl" src="assets/image/Rahmat.png"/>
+        </div>
+      </div>
+
+      <!-- Side Editorial Texts (Layer z-30, HANYA TAMPIL DI TABLET & DESKTOP) -->
+      <!-- PERBAIKAN: Teks diletakkan di sisi kiri dan kanan untuk tablet (md:flex). Lebar disesuaikan agar tidak menimpa gambar. -->
+      <div class="hidden md:flex relative z-30 w-full max-w-[1440px] mx-auto flex-1 flex-row justify-between items-end md:pb-[15vh] lg:pb-24 pointer-events-auto hero-animate" style="animation-delay: 400ms;">
+        <!-- Left Text Block -->
+        <div class="w-full max-w-[340px] lg:max-w-[360px]">
+          <p class="font-['Inter'] text-[14px] md:text-[16px] text-primary leading-relaxed font-normal text-left">
+            Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
+          </p>
+        </div>
+        <!-- Right Text Block -->
+        <div class="w-full max-w-[340px] text-right">
+          <p class="font-['Inter'] text-[14px] md:text-[16px] text-[#636363] lg:text-primary leading-relaxed font-normal text-right">
+            Menghadirkan pengalaman digital yang fungsional, bersih, dan berbobot tanpa ornamen berlebih.
+          </p>
+        </div>
+      </div>
+      
+      <!-- PERBAIKAN: Gradient Fade Putih di atas kaki gambar agar menyatu halus (Hanya efektif di HP & Tablet) -->
+      <div class="absolute inset-x-0 bottom-0 h-[14dvh] md:h-[18dvh] lg:hidden z-[25] pointer-events-none bg-gradient-to-t from-white to-transparent"></div>
+
+    </section>
+
+    <!-- PERBAIKAN: Baris footer hero dikeluarkan dari section hero agar selalu terlihat jelas dan aman dari toolbar Safari iOS -->
+    <div class="relative z-30 w-full bg-white px-5 md:px-12 py-3 border-t border-hairline/60 md:border-hairline/40 hero-animate" style="padding-bottom: max(20px, env(safe-area-inset-bottom)); animation-delay: 600ms;">
+      <div class="w-full max-w-[1440px] mx-auto flex items-center justify-between">
+        <!-- Format sesuai referensi -->
+        <span class="font-['Inter'] text-[11px] md:text-[12px] text-primary tracking-tight font-medium">
+          © Rahmat.Tech 2026
+        </span>
+        <!-- "(Scroll down)" disembunyikan di HP -->
+        <a class="hidden sm:inline-block font-['Inter'] text-[11px] md:text-[12px] text-primary font-medium hover:opacity-70 transition-opacity" href="#tentang-saya">
+          (Scroll down)
+        </a>
+      </div>
     </div>
-  </div>
-
-  <!-- Side Editorial Texts (Layer z-30, HANYA TAMPIL DI TABLET/DESKTOP) -->
-  <!-- PERBAIKAN: Menggunakan hidden md:flex agar tidak tumpang tindih dengan teks pengantar versi HP. Lebar diperkecil (max-w-[200px]) -->
-  <div class="hidden md:flex relative z-30 w-full max-w-[1440px] mx-auto flex-1 flex-row justify-between items-end md:pb-[15vh] pointer-events-auto hero-animate" style="animation-delay: 400ms;">
-    <!-- Left Text Block -->
-    <div class="w-full max-w-[200px] lg:max-w-[360px]">
-      <p class="font-['Inter'] text-[14px] md:text-[16px] text-primary/70 leading-[1.7] md:leading-relaxed font-normal text-left">
-        Halo, saya Rahmat.Tech, seorang Web Developer di Banjarmasin. Saya menghadirkan ide-ide inovatif ke dunia nyata melalui desain dan kolaborasi.
-      </p>
-    </div>
-    <!-- Right Text Block -->
-    <div class="w-full max-w-[200px] lg:max-w-[340px] text-right">
-      <p class="font-['Inter'] text-[14px] md:text-[16px] text-primary/70 leading-[1.7] md:leading-relaxed font-normal text-right">
-        Menghadirkan pengalaman digital yang fungsional, bersih, dan berbobot tanpa ornamen berlebih.
-      </p>
-    </div>
-  </div>
-  
-  <!-- PERBAIKAN: White Fade Gradient Overlay untuk menghaluskan potongan bawah celana. (Z-index 25, menutupi potret tapi di bawah baris footer) -->
-  <div class="absolute inset-x-0 bottom-0 h-[18dvh] md:h-[20vh] z-[25] pointer-events-none bg-gradient-to-t from-white via-white/80 to-transparent"></div>
-
-  <!-- Hero Bottom Row Indicator (Dipindah ke section terpisah di luar hero agar tidak melintasi potret) -->
-</section>
-
-<!-- PERBAIKAN: Baris footer hero dipisah dari section #about agar berada di layer paling atas (z-40) dan memiliki latar belakang putih solid untuk menyembunyikan sisa potongan gambar. -->
-<div class="relative z-40 w-full bg-white px-6 md:px-12 py-[max(16px,env(safe-area-inset-bottom))] md:py-6 flex items-center justify-center sm:justify-between border-t border-hairline/40">
-  <div class="w-full max-w-[1440px] mx-auto flex items-center justify-center sm:justify-between hero-animate" style="animation-delay: 600ms;">
-    <!-- PERBAIKAN: Teks 11px, uppercase, letter spacing 0.06em, warna gelap tegas -->
-    <span class="font-['Inter'] text-[11px] uppercase tracking-[0.06em] text-primary font-bold">
-      © RAHMAT.TECH 2026
-    </span>
-    <!-- Sembunyikan "Scroll down" di HP karena memakan tempat -->
-    <a class="hidden sm:inline-block font-['Inter'] text-[11px] uppercase tracking-[0.06em] text-primary hover:opacity-70 transition-opacity font-bold" href="#tentang-saya">
-      (SCROLL DOWN)
-    </a>
-  </div>
-</div>
     </section>
     
     <!-- 3. ABOUT ME BLOCK -->
