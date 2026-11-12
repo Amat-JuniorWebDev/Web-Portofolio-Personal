@@ -90,9 +90,20 @@
         </p>
       </div>
 
-      <!-- Giant Wordmark Behind Cutout Portrait -->
-      <!-- PERBAIKAN: Kelas ukuran Tailwind dihapus agar tidak saling tumpang tindih dengan CSS kustom. -->
-      <div class="absolute inset-x-0 w-full flex justify-center pointer-events-none select-none z-10 hero-wordmark">
+   <!-- Giant Wordmark Behind Cutout Portrait -->
+      <!-- PERBAIKAN FINAL: Margin (mt-[25dvh]) dihapus agar di HP tidak terdorong ganda ke tengah. 
+           HP & Tablet mengambil posisi normal dari class 'hero-wordmark' (CSS).
+           Desktop dipaksa mutlak di tengah layar dari class 'desktop-center-wordmark'. -->
+      <style>
+        @media (min-width: 1024px) {
+          .desktop-center-wordmark {
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            margin-top: 0 !important;
+          }
+        }
+      </style>
+      <div class="absolute inset-x-0 w-full flex justify-center pointer-events-none select-none z-10 hero-wordmark desktop-center-wordmark">
         <h1 class="font-['Inter_Tight'] text-[var(--wm-size)] leading-none tracking-tighter text-primary font-extrabold text-center uppercase whitespace-nowrap hero-animate" style="animation-delay: 100ms;">
           RAHMAT©
         </h1>
@@ -156,7 +167,7 @@
           </div>
           <div class="lg:col-span-7 flex flex-col gap-7 reveal-up">
             <div class="w-full bg-media-backdrop rounded-[24px] overflow-hidden aspect-[4/3] flex items-center justify-center border border-hairline shadow-none">
-              <img alt="Portrait detail Rahmat.Tech" class="w-full h-full object-cover object-center" src="assets/image/rahmat.png"/>
+              <img alt="Portrait detail Rahmat.Tech" class="w-full h-full object-cover object-center" src="assets/image/rahmat.jpg"/>
             </div>
             <div class="flex flex-col gap-5 pt-2">
               <p class="font-body-lg text-body-lg text-[#636363] leading-relaxed">
